@@ -1,0 +1,13 @@
+# CS4928 G33 / P32 - pinned environment for the RQ1 bounded reproduction
+# Interpreter: Python 3.9 (the authors' notebooks record 3.9.21 in their metadata)
+# The authors ship no requirements file, so the library versions below are OUR choice:
+# the last releases that support Python 3.9. Record this as a deviation/threat.
+numpy==2.0.2
+pandas==2.2.3
+scipy==1.13.1
+matplotlib==3.9.4
+seaborn==0.13.2
+# notebook execution (does not affect results)
+nbclient==0.10.2
+nbformat==5.10.4
+ipykernel==6.29.5
