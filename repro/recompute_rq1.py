@@ -14,6 +14,11 @@ reports, plus a FIXED-SEED bootstrap so the CIs are repeatable:
     python repro/recompute_rq1.py                 # real data -> repro/recompute/<UTC>/
     python repro/recompute_rq1.py --resamples 10000   # quick pipeline check
 
+Each (metric, group) bootstrap draws from its own stream, seeded with
+[SEED, metric stream id, group id], so one metric's CI doesn't depend on which
+other metrics ran, in what order, or with what n. The same seed gives the same
+CIs only with the same NumPy version (environment.txt records it).
+
 Do not run on the real data before the M1_PLAN tag exists. Writes to
 repro/recompute/<UTC timestamp>/:
     results.json        every number, full precision
@@ -40,13 +45,19 @@ SEED = 4928
 RESAMPLES = 1_000_000  # as in the authors' notebooks
 CHUNK = 20_000  # resamples per batch, keeps memory small
 
-# (column, test family, centre statistic, divide by for reporting)
+# (column, test family, centre statistic, divide by for reporting, bootstrap stream id)
 METRICS = {
-    "completion_time": ("clean_time", "rank", np.median, 60.0),  # seconds -> minutes
-    "perceived_productivity": ("pp_mean", "t", np.mean, 1.0),
-    "codehealth": ("codehealth", "t", np.mean, 1.0),
-    "coverage": ("coverage", "rank", np.median, 1.0),
+    "completion_time": ("clean_time", "rank", np.median, 60.0, 1),  # seconds -> minutes
+    "perceived_productivity": ("pp_mean", "t", np.mean, 1.0, 2),
+    "codehealth": ("codehealth", "t", np.mean, 1.0, 3),
+    "coverage": ("coverage", "rank", np.median, 1.0, 4),
 }
+GROUP_STREAM = {"treatment": 0, "control": 1}
+
+
+def stream(seed, metric_stream, group):
+    """The bootstrap generator for one (metric, group); independent of every other."""
+    return np.random.default_rng([seed, metric_stream, GROUP_STREAM[group]])
 
 
 def cliffs_delta(x, y) -> float:
@@ -78,7 +89,7 @@ def bootstrap_ci(data, centre, rng, resamples=RESAMPLES, ci=95.0):
     return float(np.percentile(out, tail)), float(np.percentile(out, 100.0 - tail))
 
 
-def compare(treatment, control, family, centre, scale, rng, resamples):
+def compare(treatment, control, family, centre, scale, seed, metric_stream, resamples):
     t, c = np.asarray(treatment, float), np.asarray(control, float)
     res = {"n_treatment": len(t), "n_control": len(c),
            "centre": centre.__name__,
@@ -95,21 +106,22 @@ def compare(treatment, control, family, centre, scale, rng, resamples):
                    welch_statistic=float(welch.statistic), welch_p=float(welch.pvalue),
                    effect="cohens_d", effect_size=cohens_d(t, c))
     for group, values in (("treatment", t), ("control", c)):
-        lo, hi = bootstrap_ci(values, centre, rng, resamples)
+        lo, hi = bootstrap_ci(values, centre, stream(seed, metric_stream, group), resamples)
         res[f"{group}_ci95"] = [lo / scale, hi / scale]
     return res
 
 
-def run(df, resamples=RESAMPLES, seed=SEED):
-    """All four comparisons. One generator, metrics in fixed order, so a seed gives one answer."""
-    rng = np.random.default_rng(seed)
+def run(df, resamples=RESAMPLES, seed=SEED, metrics=None):
+    """The comparisons in `metrics` (default: all four). Each metric's result is the same
+    whether it runs alone or with the others."""
     treat = df[df["treatment"] == "ai"]
     ctrl = df[df["treatment"] == "human"]
     results = {}
-    for name, (col, family, centre, scale) in METRICS.items():
+    for name in metrics or METRICS:
+        col, family, centre, scale, metric_stream = METRICS[name]
         # same exclusions as the notebooks: per-metric dropna, nothing else
         results[name] = compare(treat[col].dropna(), ctrl[col].dropna(),
-                                family, centre, scale, rng, resamples)
+                                family, centre, scale, seed, metric_stream, resamples)
     return results
 
 
@@ -129,10 +141,14 @@ def main():
 
     df = pd.read_csv(REPO / DATA)
     results = run(df, args.resamples, args.seed)
-    meta = {"run": stamp, "seed": args.seed, "resamples": args.resamples, "data": DATA}
+    meta = {"run": stamp, "seed": args.seed, "resamples": args.resamples, "data": DATA,
+            "bootstrap_streams": "numpy default_rng([seed, metric stream id, group id]); "
+                                 "group 0 = treatment, 1 = control",
+            "metric_stream_ids": {name: m[4] for name, m in METRICS.items()}}
 
     (out / "results.json").write_text(json.dumps({"meta": meta, "results": results}, indent=2), encoding="utf-8")
-    lines = [f"run {stamp}  seed={args.seed}  resamples={args.resamples}"]
+    lines = [f"run {stamp}  seed={args.seed}  resamples={args.resamples}  "
+             f"(one bootstrap stream per metric and group)"]
     for name, r in results.items():
         lines.append(f"\n[{name}]  n = {r['n_treatment']} vs {r['n_control']}")
         lines.append(f"  {r['centre']}: {r['treatment_centre']!r} vs {r['control_centre']!r}")

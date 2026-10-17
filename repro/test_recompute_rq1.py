@@ -96,6 +96,22 @@ class Bootstrap(unittest.TestCase):
         # different batching draws the same stream in the same order
         self.assertEqual(small, big)
 
+    def test_is_a_plain_percentile_bootstrap(self):
+        # resample with replacement, take the centre of each resample, 2.5th/97.5th percentile
+        data = np.random.default_rng(6).normal(size=25)
+        idx = np.random.default_rng(10).integers(0, 25, size=(3000, 25))
+        stats_ = np.median(data[idx], axis=1)
+        expected = (np.percentile(stats_, 2.5), np.percentile(stats_, 97.5))
+        got = rq1.bootstrap_ci(data, np.median, np.random.default_rng(10), resamples=3000)
+        self.assertEqual(got, expected)
+
+    def test_each_metric_and_group_has_its_own_stream(self):
+        a = rq1.stream(11, 3, "treatment").integers(0, 10**9, 5)
+        self.assertTrue(np.array_equal(a, rq1.stream(11, 3, "treatment").integers(0, 10**9, 5)))
+        for other in (rq1.stream(11, 3, "control"), rq1.stream(11, 4, "treatment"), rq1.stream(12, 3, "treatment")):
+            self.assertFalse(np.array_equal(a, other.integers(0, 10**9, 5)))
+        self.assertEqual(len({m[4] for m in rq1.METRICS.values()}), len(rq1.METRICS))
+
 
 class Pipeline(unittest.TestCase):
     def setUp(self):
@@ -117,13 +133,24 @@ class Pipeline(unittest.TestCase):
         w = stats.ttest_ind(t.codehealth, c.codehealth, equal_var=False)
         self.assertEqual(self.res["codehealth"]["p"], float(s.pvalue))
         self.assertEqual(self.res["codehealth"]["welch_p"], float(w.pvalue))
+        w = stats.ttest_ind(t.pp_mean.dropna(), c.pp_mean.dropna(), equal_var=False)
+        self.assertEqual(self.res["perceived_productivity"]["welch_p"], float(w.pvalue))
 
     def test_time_reported_in_minutes(self):
         t = self.df[self.df.treatment == "ai"].clean_time.dropna()
         self.assertAlmostEqual(self.res["completion_time"]["treatment_centre"], t.median() / 60)
+        lo, hi = self.res["completion_time"]["treatment_ci95"]
+        self.assertTrue(t.min() / 60 <= lo <= hi <= t.max() / 60)
 
     def test_whole_run_is_repeatable(self):
         self.assertEqual(self.res, rq1.run(self.df, resamples=2000, seed=11))
+
+    def test_metric_alone_or_reordered_gives_same_result(self):
+        # 9c needs every value identical before and after a refactor, whatever runs first
+        for name in rq1.METRICS:
+            self.assertEqual(rq1.run(self.df, resamples=2000, seed=11, metrics=[name])[name], self.res[name])
+        backwards = rq1.run(self.df, resamples=2000, seed=11, metrics=list(rq1.METRICS)[::-1])
+        self.assertEqual(backwards, self.res)
 
 
 if __name__ == "__main__":

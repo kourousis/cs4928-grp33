@@ -33,7 +33,9 @@ class ParseLine(unittest.TestCase):
     def test_unexpected_lines_stop_the_run(self):
         for bad in ("warn: ./src/main/A.java:3: Complex Method ",
                     "info: ./src/main/A.java:1: Code health score: 8.5x ",
-                    MAIN_A + MAIN_B):
+                    MAIN_A + MAIN_B,
+                    "info: src/main/java/x/A.java:1: Code health score: 8.50 ",     # no ./
+                    "info: ./target/generated/A.java:1: Code health score: 8.50 "):
             with self.assertRaises(ValueError):
                 rq1b.parse_file_line(bad)
 
@@ -50,13 +52,34 @@ class EntryMeans(unittest.TestCase):
         self.assertTrue(math.isnan(row["mean_main"]))
 
 
+class Shape(unittest.TestCase):
+    def test_expected_shape_passes(self):
+        rq1b.check_shape([{"id": i, "content": []} for i in range(3)], pd.Series([8.0, 8.5, 9.0]), n=3)
+
+    def test_wrong_shape_stops_the_run(self):
+        good = [{"id": i, "content": []} for i in range(3)]
+        for entries, published in ((good[:2], pd.Series([8.0, 8.5, 9.0])),              # too few entries
+                                   ([good[1], good[0], good[2]], pd.Series([8.0, 8.5, 9.0])),  # out of order
+                                   ([dict(good[0], sloc=1), *good[1:]], pd.Series([8.0, 8.5, 9.0])),  # extra key
+                                   (good, pd.Series([8.0, 8.5])),                         # too few published
+                                   (good, pd.Series([8.0, None, 9.0]))):                  # missing published
+            with self.assertRaises(ValueError):
+                rq1b.check_shape(entries, published, n=3)
+
+
 class Run(unittest.TestCase):
+    def test_entry_without_scored_main_file_stops_the_run(self):
+        df = pd.DataFrame({"treatment": ["ai"], "codehealth": [8.0]})
+        with self.assertRaises(ValueError):
+            rq1b.run([{"id": 0, "content": [TEST_C, NULL_D]}], df)
+
     def test_summary_uses_only_rows_with_treatment(self):
         entries = [{"id": 0, "content": [MAIN_A]}, {"id": 1, "content": [MAIN_B, NULL_D]}]
         df = pd.DataFrame({"treatment": ["ai", "human", None], "codehealth": [8.0, 9.0, None]})
         rows, s = rq1b.run(entries, df)
         self.assertEqual(list(rows["id"]), [0, 1])
         self.assertEqual((s["files"], s["null_scores"], s["entries_with_null"]), (3, 1, 1))
+        self.assertEqual(s["json_entry_keys"], ["content", "id"])
         self.assertEqual(s["published_codehealth"]["n"], 2)
         self.assertAlmostEqual(s["published_codehealth"]["mean"], 8.5)
         self.assertAlmostEqual(s["recomputed_unweighted_all"]["mean"], (8.5 + 10.0) / 2)
