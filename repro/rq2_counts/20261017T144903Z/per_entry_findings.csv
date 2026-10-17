@@ -1,0 +1,159 @@
+id,change_type,category,count
+0,introduced,Primitive Obsession,1
+0,unchanged,String Heavy Function Arguments,1
+1,improved,Complex Method,1
+1,introduced,Complex Method,2
+1,unchanged,Bumpy Road Ahead,1
+2,degraded,Complex Method,1
+2,unchanged,Bumpy Road Ahead,1
+3,degraded,Complex Method,1
+4,degraded,Complex Method,1
+5,degraded,Complex Method,1
+7,introduced,Missing Arguments Abstractions,1
+7,introduced,Primitive Obsession,1
+7,unchanged,Excess Number of Function Arguments,1
+8,introduced,Code Duplication,1
+8,introduced,Complex Method,3
+9,unchanged,Code Duplication,1
+10,degraded,Complex Method,1
+11,degraded,Complex Method,1
+11,introduced,Code Duplication,1
+12,unchanged,String Heavy Function Arguments,1
+13,fixed,Bumpy Road Ahead,1
+13,fixed,Complex Method,1
+13,introduced,Bumpy Road Ahead,1
+13,introduced,Complex Method,1
+14,degraded,Complex Method,1
+14,fixed,String Heavy Function Arguments,1
+14,introduced,Complex Conditional,1
+15,degraded,Complex Method,1
+15,introduced,Bumpy Road Ahead,1
+15,introduced,Complex Conditional,1
+15,introduced,Primitive Obsession,1
+16,fixed,String Heavy Function Arguments,1
+16,introduced,Complex Method,1
+16,unchanged,Primitive Obsession,1
+17,fixed,Code Duplication,2
+17,fixed,Complex Conditional,1
+17,fixed,Complex Method,2
+17,fixed,Primitive Obsession,1
+17,fixed,String Heavy Function Arguments,1
+17,introduced,Excess Number of Function Arguments,1
+18,fixed,String Heavy Function Arguments,1
+18,introduced,Primitive Obsession,1
+19,degraded,Complex Conditional,1
+19,degraded,Complex Method,1
+19,unchanged,Code Duplication,1
+19,unchanged,Primitive Obsession,1
+19,unchanged,String Heavy Function Arguments,1
+20,degraded,Complex Method,1
+20,introduced,Complex Conditional,1
+20,introduced,String Heavy Function Arguments,1
+21,degraded,Complex Method,1
+22,fixed,String Heavy Function Arguments,1
+22,introduced,Primitive Obsession,1
+23,introduced,Primitive Obsession,1
+23,unchanged,Complex Method,1
+25,fixed,Bumpy Road Ahead,1
+25,improved,Complex Method,1
+25,introduced,Complex Conditional,1
+25,unchanged,Code Duplication,1
+26,degraded,Complex Method,1
+28,introduced,Complex Method,2
+28,introduced,Primitive Obsession,1
+28,introduced,String Heavy Function Arguments,1
+28,unchanged,Code Duplication,2
+29,degraded,Complex Method,1
+30,introduced,Duplicated Assertion Blocks,1
+31,fixed,Complex Method,1
+31,introduced,Code Duplication,1
+31,introduced,Complex Method,1
+32,fixed,Complex Conditional,1
+32,improved,Complex Method,1
+32,unchanged,Bumpy Road Ahead,1
+33,fixed,Bumpy Road Ahead,1
+33,fixed,Complex Method,1
+33,introduced,Complex Method,1
+34,degraded,Complex Method,1
+34,fixed,Complex Method,1
+34,fixed,String Heavy Function Arguments,1
+34,introduced,Code Duplication,1
+34,introduced,Complex Method,1
+34,introduced,Primitive Obsession,2
+35,introduced,Complex Method,1
+35,unchanged,Code Duplication,1
+35,unchanged,String Heavy Function Arguments,1
+36,improved,Complex Method,1
+37,degraded,Complex Method,1
+38,degraded,Complex Method,1
+40,degraded,Bumpy Road Ahead,1
+40,degraded,Complex Method,1
+41,degraded,Complex Method,2
+41,introduced,Bumpy Road Ahead,1
+41,introduced,Complex Method,1
+41,unchanged,Excess Number of Function Arguments,1
+41,unchanged,Primitive Obsession,1
+42,fixed,Complex Method,1
+43,introduced,Code Duplication,1
+43,introduced,Complex Conditional,1
+43,unchanged,Complex Method,1
+44,degraded,Complex Method,1
+44,introduced,Complex Conditional,1
+45,degraded,Bumpy Road Ahead,1
+45,degraded,Complex Method,1
+46,degraded,Complex Method,1
+47,fixed,Bumpy Road Ahead,1
+47,fixed,Complex Method,1
+47,introduced,Complex Method,1
+48,fixed,Complex Method,1
+48,fixed,String Heavy Function Arguments,1
+48,introduced,Complex Method,1
+48,introduced,String Heavy Function Arguments,1
+49,fixed,String Heavy Function Arguments,1
+49,introduced,Primitive Obsession,1
+50,degraded,Bumpy Road Ahead,1
+50,degraded,Complex Method,1
+50,introduced,Code Duplication,1
+50,introduced,Complex Conditional,1
+51,unchanged,Code Duplication,1
+52,introduced,Code Duplication,1
+52,introduced,Complex Method,1
+53,fixed,Bumpy Road Ahead,1
+53,fixed,Complex Method,1
+54,fixed,Complex Method,1
+54,unchanged,Complex Method,1
+54,unchanged,Primitive Obsession,1
+55,introduced,Code Duplication,1
+55,introduced,Excess Number of Function Arguments,1
+55,introduced,Overall Code Complexity,1
+55,unchanged,Complex Method,1
+56,fixed,Code Duplication,1
+56,introduced,Primitive Obsession,1
+57,degraded,Complex Method,1
+57,unchanged,Bumpy Road Ahead,1
+58,degraded,Complex Method,1
+58,fixed,Bumpy Road Ahead,1
+58,improved,Complex Method,1
+59,degraded,Complex Method,1
+60,fixed,Complex Method,1
+62,improved,Complex Method,1
+63,degraded,Bumpy Road Ahead,1
+63,degraded,Complex Method,1
+64,degraded,Complex Method,1
+65,degraded,Complex Method,1
+67,degraded,Complex Method,1
+67,introduced,Excess Number of Function Arguments,1
+68,unchanged,Code Duplication,1
+70,degraded,Complex Method,2
+70,introduced,Complex Conditional,1
+70,unchanged,Bumpy Road Ahead,1
+71,introduced,Complex Method,2
+71,introduced,Constructor Over-Injection,1
+71,introduced,Primitive Obsession,1
+71,unchanged,Code Duplication,1
+72,degraded,Complex Method,1
+72,introduced,Primitive Obsession,1
+72,introduced,String Heavy Function Arguments,1
+72,unchanged,Code Duplication,1
+73,degraded,Complex Method,1
+74,degraded,Complex Method,1

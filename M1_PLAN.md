@@ -256,7 +256,8 @@ A correct link would give near-exact commit counts. **The link is not recoverabl
 Entry-date order is the weak best candidate, and we will mention it to the authors.
 
 - **L1.** Ask the authors for the `id` → participant mapping (and, for RQ1b, per-file SLOC) through a
-  GitHub issue on the artefact repo. Raised on __ Oct 2026 by __.
+  GitHub issue on the artefact repo. Raised on 17 Oct 2026 by Enda
+  ([codescene-research/echoes-of-ai-emse-2025#1](https://github.com/codescene-research/echoes-of-ai-emse-2025/issues/1)).
 - **L2.** We accept a mapping only if it reproduces paper Table 8 from `task2_cs_delta.json`.
   - Compare **recovered integer counts**, not rounded means: for each Table 8 row and group, the count
     must equal round(n · mean), with n = 40 or 35.
@@ -391,3 +392,9 @@ No Change Event material has been opened.
 | 14 Oct 2026 | RQ2 expected result adopted (team decision D2), proposed by Claude from paper Tables 8 and 12 | Prediction made before any per-group RQ2 value was seen |
 | 14 Oct 2026 | RQ1b and RQ3 expected results adopted, as proposed by Claude | Predictions made before any RQ1b/RQ3 analysis was run |
 | 14 Oct 2026 | RQ3 marked as carrying the M4 design work, not optional (team decision D3) | The brief makes the design stage mandatory |
+| 16 Oct 2026 | RQ1b: files whose score is `null` (written `nu` in the JSON; 84 of 1,774 file lines, in 74 of 75 entries, 74 of them `RecipeRepository.java`, all under `src/main`) are left out of the unweighted means and counted per entry. Proposed by Claude, accepted by Enda | CodeScene gives no score for these files and the plan didn't say how to treat them. Decided before the RQ1b run: the rule is in `repro/recompute_rq1b.py` as last edited on 16 Oct, whose hash is in `repro/rq1b_codehealth/20261017T143340Z/inputs_sha256.txt`. The published SLOC-weighted rule can't be checked either way |
+| 16 Oct 2026 | Enda's script runs (6b, 6c, 6d) use Python 3.9.25 (installed with `uv`) | The authors' notebooks record 3.9.21. Same minor version, so no effect on results is expected; each run's `environment.txt` records the version used |
+| 17 Oct 2026 | 6b: our own fixed-seed recompute of the four RQ1a comparisons (`repro/recompute_rq1.py`, seed 4928, 1,000,000 resamples) is added as a cross-check. It does not set the RQ1a status, which still comes from the as-shipped notebook runs (Method step 1) | The workbook (G37) promises a result "recomputed independently with a fixed seed", but this plan didn't include it. Run first on 16 Oct (`repro/recompute/20261016T155931Z`) |
+| 17 Oct 2026 | 6b re-run with its own bootstrap stream for each metric and group (`default_rng([seed, metric, group])`) instead of one stream shared by all four metrics. The 16 Oct run is kept as made. Found in an AI review (Claude), fix accepted by Enda | With one shared stream, a metric's CIs depended on which metrics ran before it, so no metric could be recomputed alone, and 9c needs exactly that. Point estimates, test statistics, p-values and effect sizes don't use the bootstrap and can't change; only the CIs can |
+| 17 Oct 2026 | 6c and 6d re-run after adding input checks (expected ids, keys, paths, empty PMD error fields). 6d also now writes per-entry counts by change type and category, and checks that Table 8's 7 unprinted cells pool to 0. The first runs (`20261017T143340Z`, `20261017T143341Z`) are kept as made. Found in an AI review (Claude), accepted by Enda | The per-category counts are needed for the L2 per-group check. The checks only stop a run on unexpected input, so the per-entry numbers must equal the first runs' |
+| 17 Oct 2026 | RQ2: PMD totals include generated code. Entries 56 and 60 have 12 PMD file records under `./target/generated-sources/` (264 violations), which are counted | The "every file" counting rule covers them, but the plan didn't mention generated code. Disclosed; the rule is unchanged |

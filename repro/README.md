@@ -45,3 +45,26 @@ Commit the `repro/runs/<timestamp>/` folder of the run you report — it is the 
    code calls `ttest_ind(..., equal_var=True)`, which is Student's t-test. Audit finding.
 4. Library versions are our choice (last releases supporting Python 3.9); the authors
    published no versions.
+
+## Our own scripts (tasks 6b, 6c, 6d)
+
+These read the package's data directly instead of running the notebooks. Each run writes a new
+timestamped folder with its results, `environment.txt` and `inputs_sha256.txt`. Commit that folder as
+raw evidence and never edit it; to change a result, fix the script, log the deviation in `M1_PLAN.md`
+first, and re-run.
+
+| Script | Task | Writes to | What it does |
+|---|---|---|---|
+| `recompute_rq1.py` | 6b | `repro/recompute/<UTC>/` | The four RQ1a comparisons recomputed with our code, plus fixed-seed bootstrap CIs (seed 4928, 1,000,000 resamples, one stream per metric and group). A cross-check, not the source of the RQ1a status |
+| `recompute_rq1b.py` | 6c | `repro/rq1b_codehealth/<UTC>/` | Unweighted CodeHealth per JSON entry (all files, and `src/main` only) and the group-blind distributions next to the published `codehealth` |
+| `count_rq2.py` | 6d | `repro/rq2_counts/<UTC>/` | PMD total violations and net smell change per JSON entry, counts by change type and category, and fallback (a): the Table 8 check |
+
+```
+.venv/bin/python -m unittest discover -s repro -p "test_*.py"   # all tests, made-up data only
+.venv/bin/python repro/recompute_rq1.py
+.venv/bin/python repro/recompute_rq1b.py
+.venv/bin/python repro/count_rq2.py
+```
+
+`recompute_rq1b.py` and `count_rq2.py` import the hash function from `recompute_rq1.py`. The same seed
+gives the same CIs only with the same NumPy version (see `environment.txt`).
