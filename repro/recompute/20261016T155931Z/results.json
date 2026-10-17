@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "run": "20261016T155931Z",
+    "seed": 4928,
+    "resamples": 1000000,
+    "data": "data/task2_preprocessed.csv"
+  },
+  "results": {
+    "completion_time": {
+      "n_treatment": 39,
+      "n_control": 33,
+      "centre": "median",
+      "treatment_centre": 136.06666666666666,
+      "control_centre": 172.63333333333333,
+      "test": "wilcoxon_rank_sum",
+      "statistic": -0.5763815832207023,
+      "p": 0.5643572899014769,
+      "effect": "cliffs_delta",
+      "effect_size": -0.07925407925407925,
+      "treatment_ci95": [
+        105.45,
+        180.0
+      ],
+      "control_ci95": [
+        118.08333333333333,
+        210.0
+      ]
+    },
+    "perceived_productivity": {
+      "n_treatment": 39,
+      "n_control": 33,
+      "centre": "mean",
+      "treatment_centre": 3.9461538461538455,
+      "control_centre": 4.0636363636363635,
+      "test": "student_t",
+      "statistic": -0.8997387071284703,
+      "p": 0.37134417265146946,
+      "welch_statistic": -0.9069788215170508,
+      "welch_p": 0.367546835800754,
+      "effect": "cohens_d",
+      "effect_size": -0.21281066027050208,
+      "treatment_ci95": [
+        3.766666666666666,
+        4.123076923076922
+      ],
+      "control_ci95": [
+        3.8848484848484843,
+        4.236363636363635
+      ]
+    },
+    "codehealth": {
+      "n_treatment": 40,
+      "n_control": 35,
+      "centre": "mean",
+      "treatment_centre": 8.48725,
+      "control_centre": 8.44085714285714,
+      "test": "student_t",
+      "statistic": 1.1930029662795454,
+      "p": 0.2367313141270534,
+      "welch_statistic": 1.1980737992774169,
+      "welch_p": 0.23478399391069485,
+      "effect": "cohens_d",
+      "effect_size": 0.27612653131746967,
+      "treatment_ci95": [
+        8.43475,
+        8.5405
+      ],
+      "control_ci95": [
+        8.389142857142856,
+        8.494857142857143
+      ]
+    },
+    "coverage": {
+      "n_treatment": 40,
+      "n_control": 35,
+      "centre": "median",
+      "treatment_centre": 0.7,
+      "control_centre": 0.7,
+      "test": "wilcoxon_rank_sum",
+      "statistic": 0.690292517269669,
+      "p": 0.4900102525346619,
+      "effect": "cliffs_delta",
+      "effect_size": 0.09285714285714286,
+      "treatment_ci95": [
+        0.695,
+        0.71
+      ],
+      "control_ci95": [
+        0.69,
+        0.71
+      ]
+    }
+  }
+}
