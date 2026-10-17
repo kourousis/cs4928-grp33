@@ -1,0 +1,25 @@
+run 20261017T143341Z
+75 entries, 106 smell file records, 1781 PMD file records
+pmd_total: sum 42666  range 466 - 1730
+pooled findings: introduced 62  degraded 40  unchanged 29  improved 6  fixed 32
+net_smell_change: sum -64  range -4 - 6
+
+fallback (a), Table 8 counts: 18 of 18 rows match
+  ok   fixed      Bumpy Road Ahead     expected  6  pooled  6
+  ok   fixed      Code Duplication     expected  3  pooled  3
+  ok   fixed      Complex Conditional  expected  2  pooled  2
+  ok   fixed      Complex Method       expected 12  pooled 12
+  ok   fixed      Primitive Obsession  expected  1  pooled  1
+  ok   improved   Complex Method       expected  6  pooled  6
+  ok   unchanged  Bumpy Road Ahead     expected  5  pooled  5
+  ok   unchanged  Code Duplication     expected 10  pooled 10
+  ok   unchanged  Complex Method       expected  4  pooled  4
+  ok   unchanged  Primitive Obsession  expected  4  pooled  4
+  ok   degraded   Bumpy Road Ahead     expected  4  pooled  4
+  ok   degraded   Complex Conditional  expected  1  pooled  1
+  ok   degraded   Complex Method       expected 35  pooled 35
+  ok   introduced Bumpy Road Ahead     expected  3  pooled  3
+  ok   introduced Code Duplication     expected  8  pooled  8
+  ok   introduced Complex Conditional  expected  8  pooled  8
+  ok   introduced Complex Method       expected 19  pooled 19
+  ok   introduced Primitive Obsession  expected 13  pooled 13
