@@ -1,0 +1,25 @@
+{
+  "claim_boundary": "tool-report inspection, not inspection of participant Java source",
+  "files": "all file records, including tests and missing names",
+  "generated_files": "deterministic; runtime details printed separately",
+  "pmd_counting": "all violations in all files; totals, not changes or severity weights",
+  "pmd_example": "first occurrence in source file order for each rule",
+  "sample_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "smell_counting": "one top-level finding; nested change-details not counted",
+  "source_pointer": "RFC 6901 JSON Pointer into the named original source; zero-based arrays",
+  "top_rules": "top three rule names by count; all cutoff ties retained; alphabetical tie order",
+  "unit": "JSON entry; treatment and participant identity unknown"
+}

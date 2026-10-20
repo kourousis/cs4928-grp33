@@ -1,0 +1,1395 @@
+[
+  {
+    "cs_entry": {
+      "content": [
+        {
+          "findings": [
+            {
+              "category": "Primitive Obsession",
+              "change-details": [
+                {
+                  "change-type": "introduced",
+                  "description": "In this module, 70.6% of all function arguments are primitive types, threshold = 30.0%",
+                  "value": 0.7058823529411765,
+                  "value-before": 0.6666666666666667
+                }
+              ],
+              "change-type": "introduced",
+              "new-pp": 1.0,
+              "threshold": 0.3
+            },
+            {
+              "category": "String Heavy Function Arguments",
+              "change-details": [
+                {
+                  "change-type": "improved",
+                  "description": "The ratio of strings in function arguments decreases from 50.00% to 41.18%, threshold = 39.0%",
+                  "value": 0.4117647058823529,
+                  "value-before": 0.5
+                }
+              ],
+              "change-type": "unchanged",
+              "new-pp": 1.0,
+              "old-pp": 1.0,
+              "threshold": 0.39
+            }
+          ],
+          "name": "src/main/java/com/equalexperts/recipefinder/service/RecipeSearchService.java",
+          "new-score": 7.1,
+          "old-score": 7.32
+        }
+      ],
+      "id": 0
+    },
+    "cs_entry_pointer": "/0",
+    "id": 0,
+    "pmd_entry_pointer": "/0",
+    "pmd_errors": {
+      "configurationErrors": [],
+      "processingErrors": [],
+      "suppressedViolations": []
+    },
+    "pmd_version": "7.13.0",
+    "top_rule_examples": {
+      "CommentRequired": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/0/content/files/0/violations/0",
+        "violation": {
+          "begincolumn": 8,
+          "beginline": 9,
+          "description": "Class comments are required",
+          "endcolumn": 13,
+          "endline": 9,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_documentation.html#commentrequired",
+          "priority": 3,
+          "rule": "CommentRequired",
+          "ruleset": "Documentation"
+        }
+      },
+      "LocalVariableCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/controller/RecipeAdminController.java",
+        "pointer": "/0/content/files/1/violations/23",
+        "violation": {
+          "begincolumn": 22,
+          "beginline": 45,
+          "description": "Local variable 'recipes' could be declared final",
+          "endcolumn": 29,
+          "endline": 45,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal",
+          "priority": 3,
+          "rule": "LocalVariableCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      },
+      "MethodArgumentCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/0/content/files/0/violations/3",
+        "violation": {
+          "begincolumn": 35,
+          "beginline": 10,
+          "description": "Parameter 'args' is not assigned and could be declared final",
+          "endcolumn": 39,
+          "endline": 10,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal",
+          "priority": 3,
+          "rule": "MethodArgumentCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      }
+    }
+  },
+  {
+    "cs_entry": {
+      "content": [
+        {
+          "findings": [
+            {
+              "category": "Complex Method",
+              "change-details": [
+                {
+                  "change-type": "introduced",
+                  "description": "downloadRecipes has a cyclomatic complexity of 4, threshold = 4",
+                  "locations": [
+                    {
+                      "end-line": 114,
+                      "function": "downloadRecipes",
+                      "start-line": 96
+                    }
+                  ],
+                  "value": 4
+                }
+              ],
+              "change-type": "introduced",
+              "new-pp": 6.0,
+              "threshold": 4
+            }
+          ],
+          "name": "src/main/java/com/equalexperts/recipefinder/controller/RecipeAdminController.java",
+          "new-score": 8.28,
+          "old-score": 10.0
+        },
+        {
+          "findings": [
+            {
+              "category": "Complex Method",
+              "change-details": [
+                {
+                  "change-type": "improved",
+                  "description": "search decreases in cyclomatic complexity from 17 to 5, threshold = 4",
+                  "locations": [
+                    {
+                      "end-line": 62,
+                      "end-line-before": 75,
+                      "function": "search",
+                      "start-line": 31,
+                      "start-line-before": 27
+                    }
+                  ],
+                  "value": 5,
+                  "value-before": 17
+                },
+                {
+                  "change-type": "introduced",
+                  "description": "recipeContainsString has a cyclomatic complexity of 9, threshold = 4",
+                  "locations": [
+                    {
+                      "end-line": 87,
+                      "function": "recipeContainsString",
+                      "start-line": 64
+                    }
+                  ],
+                  "value": 9
+                }
+              ],
+              "change-type": "improved",
+              "new-pp": 21.0,
+              "old-pp": 25.5,
+              "threshold": 4
+            },
+            {
+              "category": "Bumpy Road Ahead",
+              "change-details": [
+                {
+                  "change-type": "fixed",
+                  "description": "search is no longer above the threshold for logical blocks with deeply nested code",
+                  "locations": [
+                    {
+                      "end-line-before": 75,
+                      "function": "search",
+                      "start-line-before": 27
+                    }
+                  ],
+                  "value-before": 3
+                },
+                {
+                  "change-type": "introduced",
+                  "description": "recipeContainsString has 3 blocks with nested conditional logic. Any nesting of 2 or deeper is considered. Threshold is one single, nested block per function",
+                  "locations": [
+                    {
+                      "end-line": 87,
+                      "function": "recipeContainsString",
+                      "start-line": 64
+                    }
+                  ],
+                  "value": 3
+                }
+              ],
+              "change-type": "unchanged",
+              "new-pp": 0.5,
+              "old-pp": 0.5,
+              "threshold": 2
+            }
+          ],
+          "name": "src/main/java/com/equalexperts/recipefinder/controller/RecipeSearchController.java",
+          "new-score": 5.21,
+          "old-score": 4.59
+        },
+        {
+          "findings": [
+            {
+              "category": "Complex Method",
+              "change-details": [
+                {
+                  "change-type": "introduced",
+                  "description": "parseNumberOfDollarsToCents has a cyclomatic complexity of 6, threshold = 4",
+                  "locations": [
+                    {
+                      "end-line": 31,
+                      "function": "parseNumberOfDollarsToCents",
+                      "start-line": 18
+                    }
+                  ],
+                  "value": 6
+                },
+                {
+                  "change-type": "introduced",
+                  "description": "parseNumberOfMinutes has a cyclomatic complexity of 5, threshold = 4",
+                  "locations": [
+                    {
+                      "end-line": 16,
+                      "function": "parseNumberOfMinutes",
+                      "start-line": 7
+                    }
+                  ],
+                  "value": 5
+                }
+              ],
+              "change-type": "introduced",
+              "new-pp": 16.5,
+              "threshold": 4
+            }
+          ],
+          "name": "src/main/java/com/equalexperts/recipefinder/controller/InputParser.java",
+          "new-score": 6.03,
+          "old-score": null
+        }
+      ],
+      "id": 1
+    },
+    "cs_entry_pointer": "/1",
+    "id": 1,
+    "pmd_entry_pointer": "/1",
+    "pmd_errors": {
+      "configurationErrors": [],
+      "processingErrors": [],
+      "suppressedViolations": []
+    },
+    "pmd_version": "7.13.0",
+    "top_rule_examples": {
+      "CommentRequired": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/1/content/files/0/violations/0",
+        "violation": {
+          "begincolumn": 8,
+          "beginline": 9,
+          "description": "Class comments are required",
+          "endcolumn": 13,
+          "endline": 9,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_documentation.html#commentrequired",
+          "priority": 3,
+          "rule": "CommentRequired",
+          "ruleset": "Documentation"
+        }
+      },
+      "LocalVariableCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/controller/InputParser.java",
+        "pointer": "/1/content/files/1/violations/9",
+        "violation": {
+          "begincolumn": 20,
+          "beginline": 23,
+          "description": "Local variable 'dollars' could be declared final",
+          "endcolumn": 27,
+          "endline": 23,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal",
+          "priority": 3,
+          "rule": "LocalVariableCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      },
+      "MethodArgumentCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/1/content/files/0/violations/3",
+        "violation": {
+          "begincolumn": 35,
+          "beginline": 10,
+          "description": "Parameter 'args' is not assigned and could be declared final",
+          "endcolumn": 39,
+          "endline": 10,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal",
+          "priority": 3,
+          "rule": "MethodArgumentCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      }
+    }
+  },
+  {
+    "cs_entry": {
+      "content": [
+        {
+          "findings": [
+            {
+              "category": "Complex Method",
+              "change-details": [
+                {
+                  "change-type": "degraded",
+                  "description": "search increases in cyclomatic complexity from 14 to 16, threshold = 4",
+                  "locations": [
+                    {
+                      "end-line": 82,
+                      "end-line-before": 70,
+                      "function": "search",
+                      "start-line": 32,
+                      "start-line-before": 31
+                    }
+                  ],
+                  "value": 16,
+                  "value-before": 14
+                }
+              ],
+              "change-type": "degraded",
+              "new-pp": 24.0,
+              "old-pp": 21.0,
+              "threshold": 4
+            },
+            {
+              "category": "Bumpy Road Ahead",
+              "change-details": [
+                {
+                  "change-type": "degraded",
+                  "description": "search increases from 3 to 4 logical blocks with deeply nested code, threshold is one single block per function",
+                  "locations": [
+                    {
+                      "end-line": 82,
+                      "end-line-before": 70,
+                      "function": "search",
+                      "start-line": 32,
+                      "start-line-before": 31
+                    }
+                  ],
+                  "value": 4,
+                  "value-before": 3
+                }
+              ],
+              "change-type": "unchanged",
+              "new-pp": 0.5,
+              "old-pp": 0.5,
+              "threshold": 2
+            }
+          ],
+          "name": "src/main/java/com/equalexperts/recipefinder/controller/RecipeSearchController.java",
+          "new-score": 4.79,
+          "old-score": 5.21
+        }
+      ],
+      "id": 2
+    },
+    "cs_entry_pointer": "/2",
+    "id": 2,
+    "pmd_entry_pointer": "/2",
+    "pmd_errors": {
+      "configurationErrors": [],
+      "processingErrors": [],
+      "suppressedViolations": []
+    },
+    "pmd_version": "7.13.0",
+    "top_rule_examples": {
+      "CommentRequired": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/2/content/files/0/violations/0",
+        "violation": {
+          "begincolumn": 8,
+          "beginline": 9,
+          "description": "Class comments are required",
+          "endcolumn": 13,
+          "endline": 9,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_documentation.html#commentrequired",
+          "priority": 3,
+          "rule": "CommentRequired",
+          "ruleset": "Documentation"
+        }
+      },
+      "LocalVariableCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/controller/RecipeAdminController.java",
+        "pointer": "/2/content/files/1/violations/13",
+        "violation": {
+          "begincolumn": 19,
+          "beginline": 52,
+          "description": "Local variable 'richRecipeDTO' could be declared final",
+          "endcolumn": 32,
+          "endline": 52,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal",
+          "priority": 3,
+          "rule": "LocalVariableCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      },
+      "MethodArgumentCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/2/content/files/0/violations/3",
+        "violation": {
+          "begincolumn": 35,
+          "beginline": 10,
+          "description": "Parameter 'args' is not assigned and could be declared final",
+          "endcolumn": 39,
+          "endline": 10,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal",
+          "priority": 3,
+          "rule": "MethodArgumentCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      }
+    }
+  },
+  {
+    "cs_entry": {
+      "content": [
+        {
+          "findings": [
+            {
+              "category": "Complex Method",
+              "change-details": [
+                {
+                  "change-type": "degraded",
+                  "description": "search increases in cyclomatic complexity from 15 to 17, threshold = 4",
+                  "locations": [
+                    {
+                      "end-line": 88,
+                      "end-line-before": 78,
+                      "function": "search",
+                      "start-line": 31,
+                      "start-line-before": 31
+                    }
+                  ],
+                  "value": 17,
+                  "value-before": 15
+                }
+              ],
+              "change-type": "degraded",
+              "new-pp": 25.5,
+              "old-pp": 22.5,
+              "threshold": 4
+            }
+          ],
+          "name": "src/main/java/com/equalexperts/recipefinder/controller/RecipeSearchController.java",
+          "new-score": 4.59,
+          "old-score": 5.0
+        }
+      ],
+      "id": 3
+    },
+    "cs_entry_pointer": "/3",
+    "id": 3,
+    "pmd_entry_pointer": "/3",
+    "pmd_errors": {
+      "configurationErrors": [],
+      "processingErrors": [],
+      "suppressedViolations": []
+    },
+    "pmd_version": "7.13.0",
+    "top_rule_examples": {
+      "CommentRequired": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/3/content/files/0/violations/0",
+        "violation": {
+          "begincolumn": 8,
+          "beginline": 9,
+          "description": "Class comments are required",
+          "endcolumn": 13,
+          "endline": 9,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_documentation.html#commentrequired",
+          "priority": 3,
+          "rule": "CommentRequired",
+          "ruleset": "Documentation"
+        }
+      },
+      "LocalVariableCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/controller/RecipeAdminController.java",
+        "pointer": "/3/content/files/1/violations/12",
+        "violation": {
+          "begincolumn": 19,
+          "beginline": 47,
+          "description": "Local variable 'summary' could be declared final",
+          "endcolumn": 26,
+          "endline": 47,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal",
+          "priority": 3,
+          "rule": "LocalVariableCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      },
+      "MethodArgumentCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/3/content/files/0/violations/3",
+        "violation": {
+          "begincolumn": 35,
+          "beginline": 10,
+          "description": "Parameter 'args' is not assigned and could be declared final",
+          "endcolumn": 39,
+          "endline": 10,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal",
+          "priority": 3,
+          "rule": "MethodArgumentCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      }
+    }
+  },
+  {
+    "cs_entry": {
+      "content": [
+        {
+          "findings": [
+            {
+              "category": "Complex Method",
+              "change-details": [
+                {
+                  "change-type": "degraded",
+                  "description": "search increases in cyclomatic complexity from 14 to 15, threshold = 4",
+                  "locations": [
+                    {
+                      "end-line": 72,
+                      "end-line-before": 70,
+                      "function": "search",
+                      "start-line": 28,
+                      "start-line-before": 31
+                    }
+                  ],
+                  "value": 15,
+                  "value-before": 14
+                }
+              ],
+              "change-type": "degraded",
+              "new-pp": 22.5,
+              "old-pp": 21.0,
+              "threshold": 4
+            }
+          ],
+          "name": "src/main/java/com/equalexperts/recipefinder/controller/RecipeSearchController.java",
+          "new-score": 5.0,
+          "old-score": 5.21
+        }
+      ],
+      "id": 4
+    },
+    "cs_entry_pointer": "/4",
+    "id": 4,
+    "pmd_entry_pointer": "/4",
+    "pmd_errors": {
+      "configurationErrors": [],
+      "processingErrors": [],
+      "suppressedViolations": []
+    },
+    "pmd_version": "7.13.0",
+    "top_rule_examples": {
+      "CommentRequired": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/4/content/files/0/violations/0",
+        "violation": {
+          "begincolumn": 8,
+          "beginline": 9,
+          "description": "Class comments are required",
+          "endcolumn": 13,
+          "endline": 9,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_documentation.html#commentrequired",
+          "priority": 3,
+          "rule": "CommentRequired",
+          "ruleset": "Documentation"
+        }
+      },
+      "LocalVariableCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/controller/RecipeAdminController.java",
+        "pointer": "/4/content/files/1/violations/13",
+        "violation": {
+          "begincolumn": 19,
+          "beginline": 52,
+          "description": "Local variable 'richRecipeDTO' could be declared final",
+          "endcolumn": 32,
+          "endline": 52,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal",
+          "priority": 3,
+          "rule": "LocalVariableCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      },
+      "MethodArgumentCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/4/content/files/0/violations/3",
+        "violation": {
+          "begincolumn": 35,
+          "beginline": 10,
+          "description": "Parameter 'args' is not assigned and could be declared final",
+          "endcolumn": 39,
+          "endline": 10,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal",
+          "priority": 3,
+          "rule": "MethodArgumentCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      }
+    }
+  },
+  {
+    "cs_entry": {
+      "content": [
+        {
+          "findings": [
+            {
+              "category": "Complex Method",
+              "change-details": [
+                {
+                  "change-type": "degraded",
+                  "description": "search increases in cyclomatic complexity from 8 to 10, threshold = 4",
+                  "locations": [
+                    {
+                      "end-line": 46,
+                      "end-line-before": 42,
+                      "function": "search",
+                      "start-line": 25,
+                      "start-line-before": 25
+                    }
+                  ],
+                  "value": 10,
+                  "value-before": 8
+                }
+              ],
+              "change-type": "degraded",
+              "new-pp": 15.0,
+              "old-pp": 12.0,
+              "threshold": 4
+            }
+          ],
+          "name": "src/main/java/com/equalexperts/recipefinder/controller/RecipeSearchController.java",
+          "new-score": 6.3,
+          "old-score": 6.89
+        }
+      ],
+      "id": 5
+    },
+    "cs_entry_pointer": "/5",
+    "id": 5,
+    "pmd_entry_pointer": "/5",
+    "pmd_errors": {
+      "configurationErrors": [],
+      "processingErrors": [],
+      "suppressedViolations": []
+    },
+    "pmd_version": "7.13.0",
+    "top_rule_examples": {
+      "CommentRequired": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/5/content/files/0/violations/0",
+        "violation": {
+          "begincolumn": 8,
+          "beginline": 9,
+          "description": "Class comments are required",
+          "endcolumn": 13,
+          "endline": 9,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_documentation.html#commentrequired",
+          "priority": 3,
+          "rule": "CommentRequired",
+          "ruleset": "Documentation"
+        }
+      },
+      "LocalVariableCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/controller/RecipeAdminController.java",
+        "pointer": "/5/content/files/1/violations/14",
+        "violation": {
+          "begincolumn": 24,
+          "beginline": 57,
+          "description": "Local variable 'ingredients' could be declared final",
+          "endcolumn": 35,
+          "endline": 57,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal",
+          "priority": 3,
+          "rule": "LocalVariableCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      },
+      "MethodArgumentCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/5/content/files/0/violations/3",
+        "violation": {
+          "begincolumn": 35,
+          "beginline": 10,
+          "description": "Parameter 'args' is not assigned and could be declared final",
+          "endcolumn": 39,
+          "endline": 10,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal",
+          "priority": 3,
+          "rule": "MethodArgumentCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      }
+    }
+  },
+  {
+    "cs_entry": {
+      "content": [],
+      "id": 6
+    },
+    "cs_entry_pointer": "/6",
+    "id": 6,
+    "pmd_entry_pointer": "/6",
+    "pmd_errors": {
+      "configurationErrors": [],
+      "processingErrors": [],
+      "suppressedViolations": []
+    },
+    "pmd_version": "7.13.0",
+    "top_rule_examples": {
+      "CommentRequired": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/6/content/files/0/violations/0",
+        "violation": {
+          "begincolumn": 8,
+          "beginline": 9,
+          "description": "Class comments are required",
+          "endcolumn": 13,
+          "endline": 9,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_documentation.html#commentrequired",
+          "priority": 3,
+          "rule": "CommentRequired",
+          "ruleset": "Documentation"
+        }
+      },
+      "LocalVariableCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/controller/RecipeAdminController.java",
+        "pointer": "/6/content/files/1/violations/13",
+        "violation": {
+          "begincolumn": 19,
+          "beginline": 44,
+          "description": "Local variable 'updated' could be declared final",
+          "endcolumn": 26,
+          "endline": 44,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal",
+          "priority": 3,
+          "rule": "LocalVariableCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      },
+      "MethodArgumentCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/6/content/files/0/violations/3",
+        "violation": {
+          "begincolumn": 35,
+          "beginline": 10,
+          "description": "Parameter 'args' is not assigned and could be declared final",
+          "endcolumn": 39,
+          "endline": 10,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal",
+          "priority": 3,
+          "rule": "MethodArgumentCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      }
+    }
+  },
+  {
+    "cs_entry": {
+      "content": [
+        {
+          "findings": [
+            {
+              "category": "Missing Arguments Abstractions",
+              "change-details": [
+                {
+                  "change-type": "introduced",
+                  "description": "The average number of function arguments in this module is 4.25 across 8 functions. The average arguments threshold is 4.00",
+                  "value": 4.25,
+                  "value-before": 3.8333333333333335
+                }
+              ],
+              "change-type": "introduced",
+              "new-pp": 1.0,
+              "threshold": 4
+            },
+            {
+              "category": "Primitive Obsession",
+              "change-details": [
+                {
+                  "change-type": "introduced",
+                  "description": "In this module, 38.2% of all function arguments are primitive types, threshold = 30.0%",
+                  "value": 0.3823529411764706,
+                  "value-before": 0.3478260869565217
+                }
+              ],
+              "change-type": "introduced",
+              "new-pp": 1.0,
+              "threshold": 0.3
+            },
+            {
+              "category": "Excess Number of Function Arguments",
+              "change-details": [
+                {
+                  "change-type": "introduced",
+                  "description": "queryAndTimeAndCostPredicate has 6 arguments, threshold = 4",
+                  "locations": [
+                    {
+                      "end-line": 112,
+                      "function": "queryAndTimeAndCostPredicate",
+                      "start-line": 94
+                    }
+                  ],
+                  "value": 6
+                }
+              ],
+              "change-type": "unchanged",
+              "new-pp": 1.0,
+              "old-pp": 1.0,
+              "threshold": 4
+            }
+          ],
+          "name": "src/main/java/com/equalexperts/recipefinder/controller/RecipeSearchController.java",
+          "new-score": 9.09,
+          "old-score": 9.68
+        }
+      ],
+      "id": 7
+    },
+    "cs_entry_pointer": "/7",
+    "id": 7,
+    "pmd_entry_pointer": "/7",
+    "pmd_errors": {
+      "configurationErrors": [],
+      "processingErrors": [],
+      "suppressedViolations": []
+    },
+    "pmd_version": "7.13.0",
+    "top_rule_examples": {
+      "CommentRequired": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/7/content/files/0/violations/0",
+        "violation": {
+          "begincolumn": 8,
+          "beginline": 9,
+          "description": "Class comments are required",
+          "endcolumn": 13,
+          "endline": 9,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_documentation.html#commentrequired",
+          "priority": 3,
+          "rule": "CommentRequired",
+          "ruleset": "Documentation"
+        }
+      },
+      "LocalVariableCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/controller/RecipeAdminController.java",
+        "pointer": "/7/content/files/1/violations/13",
+        "violation": {
+          "begincolumn": 12,
+          "beginline": 45,
+          "description": "Local variable 'recipeDto' could be declared final",
+          "endcolumn": 21,
+          "endline": 45,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal",
+          "priority": 3,
+          "rule": "LocalVariableCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      },
+      "MethodArgumentCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/7/content/files/0/violations/3",
+        "violation": {
+          "begincolumn": 35,
+          "beginline": 10,
+          "description": "Parameter 'args' is not assigned and could be declared final",
+          "endcolumn": 39,
+          "endline": 10,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal",
+          "priority": 3,
+          "rule": "MethodArgumentCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      }
+    }
+  },
+  {
+    "cs_entry": {
+      "content": [
+        {
+          "findings": [
+            {
+              "category": "Code Duplication",
+              "change-details": [
+                {
+                  "change-type": "introduced",
+                  "description": "The module contains 2 functions with similar structure: filtersByMaxEstimatedCostPerServing,filtersByMaxTotalPrepTime",
+                  "locations": [
+                    {
+                      "end-line": 93,
+                      "function": "filtersByMaxTotalPrepTime",
+                      "start-line": 75
+                    },
+                    {
+                      "end-line": 114,
+                      "function": "filtersByMaxEstimatedCostPerServing",
+                      "start-line": 96
+                    }
+                  ]
+                }
+              ],
+              "change-type": "introduced",
+              "new-pp": 2.0
+            }
+          ],
+          "name": "src/test/java/com/equalexperts/recipefinder/domain/RecipeSearchTest.java",
+          "new-score": 9.38,
+          "old-score": null
+        },
+        {
+          "findings": [
+            {
+              "category": "Complex Method",
+              "change-details": [
+                {
+                  "change-type": "introduced",
+                  "description": "perform has a cyclomatic complexity of 4, threshold = 4",
+                  "locations": [
+                    {
+                      "end-line": 51,
+                      "function": "perform",
+                      "start-line": 37
+                    }
+                  ],
+                  "value": 4
+                }
+              ],
+              "change-type": "introduced",
+              "new-pp": 6.0,
+              "threshold": 4
+            }
+          ],
+          "name": "src/main/java/com/equalexperts/recipefinder/domain/RecipeSearch.java",
+          "new-score": 8.28,
+          "old-score": null
+        },
+        {
+          "findings": [
+            {
+              "category": "Complex Method",
+              "change-details": [
+                {
+                  "change-type": "introduced",
+                  "description": "equals has a cyclomatic complexity of 4, threshold = 4",
+                  "locations": [
+                    {
+                      "end-line": 37,
+                      "function": "equals",
+                      "start-line": 32
+                    }
+                  ],
+                  "value": 4
+                }
+              ],
+              "change-type": "introduced",
+              "new-pp": 6.0,
+              "threshold": 4
+            }
+          ],
+          "name": "src/main/java/com/equalexperts/recipefinder/money/Money.java",
+          "new-score": 8.28,
+          "old-score": null
+        },
+        {
+          "findings": [
+            {
+              "category": "Complex Method",
+              "change-details": [
+                {
+                  "change-type": "introduced",
+                  "description": "equals has a cyclomatic complexity of 6, threshold = 4",
+                  "locations": [
+                    {
+                      "end-line": 22,
+                      "function": "equals",
+                      "start-line": 17
+                    }
+                  ],
+                  "value": 6
+                }
+              ],
+              "change-type": "introduced",
+              "new-pp": 9.0,
+              "threshold": 4
+            }
+          ],
+          "name": "src/main/java/com/equalexperts/recipefinder/domain/RecipeSearchRequest.java",
+          "new-score": 7.55,
+          "old-score": null
+        }
+      ],
+      "id": 8
+    },
+    "cs_entry_pointer": "/8",
+    "id": 8,
+    "pmd_entry_pointer": "/8",
+    "pmd_errors": {
+      "configurationErrors": [],
+      "processingErrors": [],
+      "suppressedViolations": []
+    },
+    "pmd_version": "7.13.0",
+    "top_rule_examples": {
+      "CommentRequired": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/8/content/files/0/violations/0",
+        "violation": {
+          "begincolumn": 8,
+          "beginline": 9,
+          "description": "Class comments are required",
+          "endcolumn": 13,
+          "endline": 9,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_documentation.html#commentrequired",
+          "priority": 3,
+          "rule": "CommentRequired",
+          "ruleset": "Documentation"
+        }
+      },
+      "LocalVariableCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/controller/RecipeAdminController.java",
+        "pointer": "/8/content/files/1/violations/17",
+        "violation": {
+          "begincolumn": 24,
+          "beginline": 58,
+          "description": "Local variable 'ingredients' could be declared final",
+          "endcolumn": 35,
+          "endline": 58,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal",
+          "priority": 3,
+          "rule": "LocalVariableCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      },
+      "MethodArgumentCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/8/content/files/0/violations/3",
+        "violation": {
+          "begincolumn": 35,
+          "beginline": 10,
+          "description": "Parameter 'args' is not assigned and could be declared final",
+          "endcolumn": 39,
+          "endline": 10,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal",
+          "priority": 3,
+          "rule": "MethodArgumentCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      }
+    }
+  },
+  {
+    "cs_entry": {
+      "content": [
+        {
+          "findings": [
+            {
+              "category": "Code Duplication",
+              "change-details": [
+                {
+                  "change-type": "degraded",
+                  "description": "introduced similar code in: avoOnToastIngredients,burntToastIngredients",
+                  "locations": [
+                    {
+                      "end-line-before": 89,
+                      "function": "avoOnToastIngredients",
+                      "start-line-before": 75
+                    },
+                    {
+                      "end-line-before": 101,
+                      "function": "burntToastIngredients",
+                      "start-line-before": 91
+                    }
+                  ]
+                }
+              ],
+              "change-type": "unchanged",
+              "new-pp": 2.0,
+              "old-pp": 2.0
+            }
+          ],
+          "name": "src/test/java/com/equalexperts/recipefinder/util/Data.java",
+          "new-score": 9.38,
+          "old-score": 9.38
+        }
+      ],
+      "id": 9
+    },
+    "cs_entry_pointer": "/9",
+    "id": 9,
+    "pmd_entry_pointer": "/9",
+    "pmd_errors": {
+      "configurationErrors": [],
+      "processingErrors": [],
+      "suppressedViolations": []
+    },
+    "pmd_version": "7.13.0",
+    "top_rule_examples": {
+      "CommentRequired": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/9/content/files/0/violations/0",
+        "violation": {
+          "begincolumn": 8,
+          "beginline": 9,
+          "description": "Class comments are required",
+          "endcolumn": 13,
+          "endline": 9,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_documentation.html#commentrequired",
+          "priority": 3,
+          "rule": "CommentRequired",
+          "ruleset": "Documentation"
+        }
+      },
+      "LocalVariableCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/controller/RecipeAdminController.java",
+        "pointer": "/9/content/files/1/violations/15",
+        "violation": {
+          "begincolumn": 24,
+          "beginline": 48,
+          "description": "Local variable 'ingredients' could be declared final",
+          "endcolumn": 35,
+          "endline": 48,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal",
+          "priority": 3,
+          "rule": "LocalVariableCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      },
+      "MethodArgumentCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/9/content/files/0/violations/3",
+        "violation": {
+          "begincolumn": 38,
+          "beginline": 10,
+          "description": "Parameter 'args' is not assigned and could be declared final",
+          "endcolumn": 42,
+          "endline": 10,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal",
+          "priority": 3,
+          "rule": "MethodArgumentCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      }
+    }
+  },
+  {
+    "cs_entry": {
+      "content": [
+        {
+          "findings": [
+            {
+              "category": "Complex Method",
+              "change-details": [
+                {
+                  "change-type": "degraded",
+                  "description": "search increases in cyclomatic complexity from 5 to 7, threshold = 4",
+                  "locations": [
+                    {
+                      "end-line": 54,
+                      "end-line-before": 44,
+                      "function": "search",
+                      "start-line": 24,
+                      "start-line-before": 24
+                    }
+                  ],
+                  "value": 7,
+                  "value-before": 5
+                }
+              ],
+              "change-type": "degraded",
+              "new-pp": 18.0,
+              "old-pp": 15.0,
+              "threshold": 4
+            }
+          ],
+          "name": "src/main/java/com/equalexperts/recipefinder/controller/RecipeSearchController.java",
+          "new-score": 5.77,
+          "old-score": 6.3
+        }
+      ],
+      "id": 10
+    },
+    "cs_entry_pointer": "/10",
+    "id": 10,
+    "pmd_entry_pointer": "/10",
+    "pmd_errors": {
+      "configurationErrors": [],
+      "processingErrors": [],
+      "suppressedViolations": []
+    },
+    "pmd_version": "7.13.0",
+    "top_rule_examples": {
+      "CommentRequired": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/10/content/files/0/violations/0",
+        "violation": {
+          "begincolumn": 8,
+          "beginline": 9,
+          "description": "Class comments are required",
+          "endcolumn": 13,
+          "endline": 9,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_documentation.html#commentrequired",
+          "priority": 3,
+          "rule": "CommentRequired",
+          "ruleset": "Documentation"
+        }
+      },
+      "LocalVariableCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/controller/RecipeAdminController.java",
+        "pointer": "/10/content/files/1/violations/13",
+        "violation": {
+          "begincolumn": 19,
+          "beginline": 48,
+          "description": "Local variable 'recipeDetails' could be declared final",
+          "endcolumn": 32,
+          "endline": 48,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal",
+          "priority": 3,
+          "rule": "LocalVariableCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      },
+      "MethodArgumentCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/10/content/files/0/violations/3",
+        "violation": {
+          "begincolumn": 35,
+          "beginline": 10,
+          "description": "Parameter 'args' is not assigned and could be declared final",
+          "endcolumn": 39,
+          "endline": 10,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal",
+          "priority": 3,
+          "rule": "MethodArgumentCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      }
+    }
+  },
+  {
+    "cs_entry": {
+      "content": [
+        {
+          "findings": [
+            {
+              "category": "Code Duplication",
+              "change-details": [
+                {
+                  "change-type": "introduced",
+                  "description": "The module contains 7 functions with similar structure: negative_cost_per_serving_assumes_no_filtering,search_on_cost_per_serving_assumes_no_estimatedcost_means_zero_cost,search_on_cost_per_serving_assumes_no_servings_means_one_serving,search_on_cost_per_serving_assumes_zero_servings_means_one_serving and 3 more functions",
+                  "locations": [
+                    {
+                      "end-line": 160,
+                      "function": "search_on_cost_per_serving_no_match",
+                      "start-line": 145
+                    },
+                    {
+                      "end-line": 177,
+                      "function": "search_on_cost_per_serving_matches",
+                      "start-line": 163
+                    },
+                    {
+                      "end-line": 194,
+                      "function": "search_on_cost_per_serving_not_match_half_extra",
+                      "start-line": 180
+                    },
+                    {
+                      "end-line": 211,
+                      "function": "search_on_cost_per_serving_assumes_no_servings_means_one_serving",
+                      "start-line": 197
+                    },
+                    {
+                      "end-line": 228,
+                      "function": "search_on_cost_per_serving_assumes_zero_servings_means_one_serving",
+                      "start-line": 214
+                    },
+                    {
+                      "end-line": 245,
+                      "function": "search_on_cost_per_serving_assumes_no_estimatedcost_means_zero_cost",
+                      "start-line": 231
+                    },
+                    {
+                      "end-line": 262,
+                      "function": "negative_cost_per_serving_assumes_no_filtering",
+                      "start-line": 248
+                    }
+                  ]
+                }
+              ],
+              "change-type": "introduced",
+              "new-pp": 2.0
+            }
+          ],
+          "name": "src/test/java/com/equalexperts/recipefinder/controller/RecipeSearchControllerTest.java",
+          "new-score": 9.38,
+          "old-score": 10.0
+        },
+        {
+          "findings": [
+            {
+              "category": "Complex Method",
+              "change-details": [
+                {
+                  "change-type": "introduced",
+                  "description": "matchMaxCostPerServing has a cyclomatic complexity of 6, threshold = 4",
+                  "locations": [
+                    {
+                      "end-line": 92,
+                      "function": "matchMaxCostPerServing",
+                      "start-line": 82
+                    }
+                  ],
+                  "value": 6
+                }
+              ],
+              "change-type": "degraded",
+              "new-pp": 24.0,
+              "old-pp": 15.0,
+              "threshold": 4
+            }
+          ],
+          "name": "src/main/java/com/equalexperts/recipefinder/controller/RecipeSearchController.java",
+          "new-score": 4.79,
+          "old-score": 6.21
+        }
+      ],
+      "id": 11
+    },
+    "cs_entry_pointer": "/11",
+    "id": 11,
+    "pmd_entry_pointer": "/11",
+    "pmd_errors": {
+      "configurationErrors": [],
+      "processingErrors": [],
+      "suppressedViolations": []
+    },
+    "pmd_version": "7.13.0",
+    "top_rule_examples": {
+      "CommentRequired": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/11/content/files/0/violations/0",
+        "violation": {
+          "begincolumn": 8,
+          "beginline": 9,
+          "description": "Class comments are required",
+          "endcolumn": 13,
+          "endline": 9,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_documentation.html#commentrequired",
+          "priority": 3,
+          "rule": "CommentRequired",
+          "ruleset": "Documentation"
+        }
+      },
+      "LocalVariableCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/controller/RecipeAdminController.java",
+        "pointer": "/11/content/files/1/violations/15",
+        "violation": {
+          "begincolumn": 24,
+          "beginline": 59,
+          "description": "Local variable 'ingredients' could be declared final",
+          "endcolumn": 35,
+          "endline": 59,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#localvariablecouldbefinal",
+          "priority": 3,
+          "rule": "LocalVariableCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      },
+      "MethodArgumentCouldBeFinal": {
+        "file": "./src/main/java/com/equalexperts/recipefinder/RecipeFinderApplication.java",
+        "pointer": "/11/content/files/0/violations/3",
+        "violation": {
+          "begincolumn": 35,
+          "beginline": 10,
+          "description": "Parameter 'args' is not assigned and could be declared final",
+          "endcolumn": 39,
+          "endline": 10,
+          "externalInfoUrl": "https://docs.pmd-code.org/pmd-doc-7.13.0/pmd_rules_java_codestyle.html#methodargumentcouldbefinal",
+          "priority": 3,
+          "rule": "MethodArgumentCouldBeFinal",
+          "ruleset": "Code Style"
+        }
+      }
+    }
+  }
+]

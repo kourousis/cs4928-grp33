@@ -1,0 +1,38 @@
+# Material AI contributions
+
+Started 20 October 2026 for Adam's task **5h**. Record only AI contributions
+that affected a method, engineering decision or interpretation. AI output is
+not evidence by itself. Keep accepted/modified/rejected decisions and link the
+checks that support them. No full prompt transcripts are required by the brief.
+
+## Earlier contributions, recorded retrospectively
+
+Earlier contributions were summarised on 20 October from M1_PLAN.md and PR #1.
+Dates below identify when the documented work took place.
+
+| Documented date | Material AI contribution | Decision/status recorded by the project | Evidence and verification record |
+|---|---|---|---|
+| 14 Oct 2026 | Claude drafted M1 from workbook entries and proposed RQ1b/RQ2/RQ3 expectations. | M1 records team adoption, including D1/D2/D3, and the timing of rules/expectations relative to pilot outputs. | [M1_PLAN.md](M1_PLAN.md), timing note, expected-result sections and deviation log. |
+| 14 Oct 2026 | Claude wrote the notebook runner and identified path/import failures R1/R2, the Welch/Student mismatch and JSON linkage limitations. | Plan accepts the runner and only the two declared in-memory repairs, with as-shipped failures retained first. | [Runner](repro/run_all.py), [run instructions](repro/README.md), M1 method and audit findings. |
+| 14 Oct 2026 | Two AI reviews found stale notebook outputs surviving a failed run, plus rounding/rule gaps. | M1 records the runner bug as fixed and rules clarified. | M1 "AI use" and timing note; runner clears stored outputs before execution. |
+| 16-17 Oct 2026 | Claude assisted Enda's statistical/counting scripts; an AI review found the shared bootstrap-stream dependency and missing input/category checks. | Enda records accepting the fixes and retaining earlier runs. Work is in open PR #1 at the time of this log. | [PR #1](https://github.com/kourousis/cs4928-grp33/pull/1), commit `b5ed310745e5596eebcd2d3dc7a380150993e81e`, its M1 deviation rows and saved reruns; 34 passing tests reported in the PR. |
+
+## Current work - 20 October 2026
+
+| Contribution / influence | Decision / review | Verification |
+|---|---|---|
+| Codex extracted the predefined JSON IDs 0-11 and drafted their qualitative interpretation for task 6e. | Reviewed by Adam on 20 October: case table and explained examples. Analysis follows the existing sample and top-level finding rule. | [Inspection](evidence/rq2_qualitative/README.md), exact original JSON pointers and raw excerpts; tests reconcile totals with Enda's independent 6d output. |
+| Codex selected the top three PMD rule names per entry, retaining cutoff ties, and provided one original example per rule. | Reporting convention chosen on 20 October and disclosed in the inspection. It does not change PMD totals or any locked hypothesis/decision rule. | [Extractor](repro/inspect_rq2_sample.py), [method](evidence/rq2_qualitative/generated/method.json), all-rule and top-rule CSVs; tests cover ties and exact source-pointer resolution. |
+| Codex distinguished nested change descriptions from top-level smell labels and limited the interpretation of PMD totals. | Applied in the draft: e.g. IDs 1/7/9/11 are not recounted using nested labels; no code correctness or AI/manual conclusion is inferred. | Original findings in [source_extract.json](evidence/rq2_qualitative/generated/source_extract.json); regression checks for the six nested-label traps. Actual Java behaviour has not been verified. |
+
+## Adam's review - 20 October 2026
+
+Adam reviewed the case table and examples covering mixed changes (ID 1), an
+empty delta report (ID 6), and finding-level versus nested change labels
+(ID 11). The work is ready for repository submission and group review.
+
+## Adding future entries
+
+For subsequent work, record the date, AI tool, material suggestion, team
+decision, reason and supporting source/test/commit evidence. Identify entries
+recorded retrospectively and append review outcomes or corrections as needed.
