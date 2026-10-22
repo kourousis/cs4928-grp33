@@ -1,0 +1,36 @@
+STATUS: FAILED
+Cells after the failing cell were NOT executed.
+--- cell 0 (execution_count=1) ---
+--- cell 1 (execution_count=2) ---
+--- cell 2 (execution_count=3) ---
+--- cell 3 (execution_count=4) ---
+--- cell 4 (execution_count=5) ---
+--- cell 6 (execution_count=6) ---
+Task 1 TC Descriptive Statistics:
+          N      mean       std  min  median  max
+ai                                               
+False  36.0  3.772222  0.525689  2.4    3.95  4.6
+True   39.0  3.866667  0.725597  2.4    4.00  5.0
+
+Task 2 TC Descriptive Statistics:
+              N      mean       std  min  median  max
+treatment                                            
+ai         39.0  3.946154  0.575301  2.7     4.0  5.0
+human      33.0  4.063636  0.523103  2.7     4.1  5.0
+--- cell 8 (execution_count=7) ---
+Cronbach's alpha: 0.814
+--- cell 11 (execution_count=8) ---
+[figure]
+--- cell 12 (execution_count=9) ---
+[figure]
+--- cell 14 (execution_count=10) ---
+[figure]
+--- cell 15 (execution_count=11) ---
+[figure]
+--- cell 16 (execution_count=12) ---
+ERROR NameError: name 'shapiro' is not defined
+--- cell 18 (execution_count=None) ---
+--- cell 20 (execution_count=None) ---
+--- cell 22 (execution_count=None) ---
+--- cell 23 (execution_count=None) ---
+--- cell 24 (execution_count=None) ---

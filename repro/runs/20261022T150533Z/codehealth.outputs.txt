@@ -1,0 +1,84 @@
+STATUS: OK
+--- cell 0 (execution_count=1) ---
+--- cell 1 (execution_count=2) ---
+--- cell 2 (execution_count=3) ---
+--- cell 3 (execution_count=4) ---
+--- cell 5 (execution_count=5) ---
+Task 1 CodeHealth Descriptive Statistics:
+          N      mean       std   min  median   max
+ai                                                 
+False  37.0  8.320811  0.148892  8.00    8.28  8.63
+True   39.0  8.353590  0.189174  7.97    8.35  9.12
+
+Task 2 CodeHealth Descriptive Statistics:
+              N      mean       std   min  median   max
+treatment                                              
+ai         40.0  8.487250  0.172834  8.07    8.47  8.89
+human      35.0  8.440857  0.162306  8.15    8.42  8.87
+--- cell 7 (execution_count=6) ---
+[figure]
+--- cell 9 (execution_count=7) ---
+[figure]
+--- cell 10 (execution_count=8) ---
+Unevolved: median = 8.254999999999999 | mean = 8.32 | std = 0.21661426345103585 | min = 7.97 | max = 9.12
+Evolved:   median = 8.34 | mean = 8.34576923076923 | std = 0.1460774190900981 | min = 8.0 | max = 8.88
+--- cell 12 (execution_count=9) ---
+[figure]
+--- cell 14 (execution_count=10) ---
+Shapiro-Wilk Test for Normality:
+Treatment Group: W=0.9849, p-value=8.6237e-01
+Control Group: W=0.9753, p-value=6.0335e-01
+--- cell 16 (execution_count=11) ---
+Levene’s Test for Equality of Variances:
+  Statistic = 0.0866
+  p-value   = 7.6934e-01
+--- cell 18 (execution_count=12) ---
+Welch’s t-test (unequal variances assumed):
+  t-statistic = 1.1930
+  p-value     = 2.3673e-01
+--- cell 20 (execution_count=13) ---
+Cohen's d for CodeHealth: 0.2761
+Effect Size Interpretation: Small
+--- cell 21 (execution_count=14) ---
+[figure]
+Bootstrap Confidence Intervals (95% CI) for CodeHealth:
+Treatment (AI-assisted): 8.49  (95% CI: 8.43 - 8.54)
+Control (Manual):       8.44  (95% CI: 8.39 - 8.49)
+--- cell 22 (execution_count=15) ---
+Bootstrap CI for the mean CodeHealth difference (Treatment - Control):
+Mean difference: 0.046
+95% CI: [-0.029, 0.121]
+--- cell 24 (execution_count=16) ---
+Shapiro–Wilk Test for Normality (Task 1, CodeHealth):
+  AI-assisted: W = 0.7973, p = 7.3850e-06
+  Manual:      W = 0.9521, p = 1.1281e-01
+--- cell 26 (execution_count=17) ---
+Wilcoxon Rank-Sum Test (CodeHealth, Task 1):
+  Statistic = 0.6391
+  p-value   = 5.2274e-01
+--- cell 28 (execution_count=18) ---
+--- cell 29 (execution_count=19) ---
+Cliff’s Delta: δ=0.0852
+Effect Size Interpretation: negligible
+--- cell 30 (execution_count=20) ---
+AI-assisted participants (CodeHealth):
+count    39.00
+mean      8.35
+std       0.19
+min       7.97
+25%       8.24
+50%       8.35
+75%       8.40
+max       9.12
+Name: codehealth, dtype: float64
+
+Manual participants (CodeHealth):
+count    37.00
+mean      8.32
+std       0.15
+min       8.00
+25%       8.21
+50%       8.28
+75%       8.45
+max       8.63
+Name: codehealth, dtype: float64
