@@ -1,0 +1,68 @@
+fresh-clone check 20261022T162534Z  url=https://github.com/kourousis/cs4928-grp33.git  ref=main
+$ git clone --quiet --branch main https://github.com/kourousis/cs4928-grp33.git <TMP>/clone
+commit 6b4a33a3045f5a5fbc40e29e0010470c67986d15
+
+$ uv venv --quiet -p 3.9 .venv
+$ uv pip install --quiet -p .venv -r repro/requirements.txt
+
+[tests]
+$ <TMP>/clone/.venv/bin/python -m unittest discover -s repro -p test_*.py
+    Ran 65 tests in 0.881s
+    
+    OK
+  unit tests: IDENTICAL
+
+[recompute_rq1.py]
+$ <TMP>/clone/.venv/bin/python repro/recompute_rq1.py
+      95% CI treatment [0.695, 0.71]  control [0.69, 0.71]
+    
+    done -> <TMP>/clone/repro/recompute/20261022T162541Z
+  committed 20261017T144852Z vs new 20261022T162541Z
+  recompute_rq1.py: IDENTICAL
+
+[recompute_rq1b.py]
+$ <TMP>/clone/.venv/bin/python repro/recompute_rq1b.py
+      mean 8.4656  sd 0.1684928420967426  range 8.07 - 8.89
+    
+    done -> <TMP>/clone/repro/rq1b_codehealth/20261022T162546Z
+  committed 20261017T144901Z vs new 20261022T162546Z
+  recompute_rq1b.py: IDENTICAL
+
+[count_rq2.py]
+$ <TMP>/clone/.venv/bin/python repro/count_rq2.py
+      ok   improved   Primitive Obsession  expected  0  pooled  0  (not printed)
+    
+    done -> <TMP>/clone/repro/rq2_counts/20261022T162547Z
+  committed 20261017T144903Z vs new 20261022T162547Z
+  count_rq2.py: IDENTICAL
+
+[inspect_rq2_sample.py --check]
+$ <TMP>/clone/.venv/bin/python repro/inspect_rq2_sample.py --check
+    PASS: all 7 saved evidence files reproduce byte-for-byte
+    Python 3.9.25 (CPython); stdlib only
+  inspect_rq2_sample.py (6e evidence reproduces): IDENTICAL
+
+[run_all.py: as shipped, then the declared repairs]
+$ <TMP>/clone/.venv/bin/python repro/run_all.py
+    [perceived_productivity] FAILED: FileNotFoundError: [Errno 2] No such file or directory: 'data/task1_preprocessed.csv'
+    [perceived_productivity] FAILED in 4s
+    done -> <TMP>/clone/repro/runs/20261022T162548Z
+$ <TMP>/clone/.venv/bin/python repro/run_all.py --repairs R1 perceived_productivity
+    [perceived_productivity] FAILED: NameError: name 'shapiro' is not defined
+    [perceived_productivity] FAILED in 7s
+    done -> <TMP>/clone/repro/runs/20261022T163534Z
+$ <TMP>/clone/.venv/bin/python repro/run_all.py --repairs R1,R2 perceived_productivity
+    [perceived_productivity] applied declared repair: 'from scipy.stats import ttest_ind' -> 'from scipy.stats import ttest_ind\nfrom scipy.stats import shapiro'
+    [perceived_productivity] OK in 84s
+    done -> <TMP>/clone/repro/runs/20261022T163543Z
+  committed ['20261022T150533Z', '20261022T151200Z', '20261022T151209Z'] vs new ['20261022T162548Z', '20261022T163534Z', '20261022T163543Z']
+  run_all.py primary values: IDENTICAL
+
+[rq1_status.py on the new runs]
+$ <TMP>/clone/.venv/bin/python repro/rq1_status.py <TMP>/clone/repro/runs/20261022T162548Z <TMP>/clone/repro/runs/20261022T163534Z <TMP>/clone/repro/runs/20261022T163543Z
+      Welch (audit): p = 0.3675 -> 0.37; Student p -> 0.37; paper says Welch's, p = 0.37
+    
+    done -> <TMP>/clone/repro/rq1_status/20261022T163710Z
+  rq1_status.py statuses: IDENTICAL
+
+ALL CHECKS PASSED
