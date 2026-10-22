@@ -1,0 +1,527 @@
+{
+  "meta": {
+    "run": "20261022T153138Z",
+    "runs": [
+      "20261022T150533Z",
+      "20261022T151200Z",
+      "20261022T151209Z"
+    ],
+    "recompute": "20261017T144852Z",
+    "alpha": 0.05
+  },
+  "overall": "REPRODUCED",
+  "metrics": {
+    "codehealth": {
+      "steps": [
+        {
+          "step": "AS SHIPPED",
+          "run": "20261022T150533Z",
+          "file": "codehealth.outputs.txt",
+          "status": "OK"
+        }
+      ],
+      "paper_location": "§4.3.1",
+      "run": "20261022T150533Z",
+      "file": "codehealth.outputs.txt",
+      "repaired": false,
+      "primary": [
+        {
+          "value": "p",
+          "printed": "2.3673e-01",
+          "rounded": "0.24",
+          "paper": "0.24",
+          "decimals": 2,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": 0.2367313141270534,
+          "recompute_6b_rounded": "0.24",
+          "cross_check_agrees": true
+        },
+        {
+          "value": "effect",
+          "printed": "0.2761",
+          "rounded": "0.28",
+          "paper": "0.28",
+          "decimals": 2,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": 0.27612653131746967,
+          "recompute_6b_rounded": "0.28",
+          "cross_check_agrees": true
+        },
+        {
+          "value": "treatment",
+          "printed": "8.49",
+          "rounded": "8.49",
+          "paper": "8.49",
+          "decimals": 2,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": 8.48725,
+          "recompute_6b_rounded": "8.49",
+          "cross_check_agrees": true
+        },
+        {
+          "value": "control",
+          "printed": "8.44",
+          "rounded": "8.44",
+          "paper": "8.44",
+          "decimals": 2,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": 8.44085714285714,
+          "recompute_6b_rounded": "8.44",
+          "cross_check_agrees": true
+        },
+        {
+          "value": "significance",
+          "printed": "2.3673e-01",
+          "rounded": "p >= 0.05",
+          "paper": "p >= 0.05",
+          "decimals": null,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": 0.2367313141270534,
+          "recompute_6b_rounded": null,
+          "cross_check_agrees": true
+        }
+      ],
+      "status": "REPRODUCED",
+      "cross_check_agrees": true,
+      "ci": [
+        {
+          "group": "treatment",
+          "bound": "lower",
+          "run": "8.43",
+          "paper": 8.43,
+          "authors_stored": "8.43",
+          "recompute_6b": 8.43475,
+          "run_vs_paper_within_noise": true,
+          "paper_vs_stored_within_noise": true
+        },
+        {
+          "group": "treatment",
+          "bound": "upper",
+          "run": "8.54",
+          "paper": 8.54,
+          "authors_stored": "8.54",
+          "recompute_6b": 8.54025,
+          "run_vs_paper_within_noise": true,
+          "paper_vs_stored_within_noise": true
+        },
+        {
+          "group": "control",
+          "bound": "lower",
+          "run": "8.39",
+          "paper": 8.39,
+          "authors_stored": "8.39",
+          "recompute_6b": 8.388857142857143,
+          "run_vs_paper_within_noise": true,
+          "paper_vs_stored_within_noise": true
+        },
+        {
+          "group": "control",
+          "bound": "upper",
+          "run": "8.49",
+          "paper": 8.49,
+          "authors_stored": "8.49",
+          "recompute_6b": 8.494857142857144,
+          "run_vs_paper_within_noise": true,
+          "paper_vs_stored_within_noise": true
+        }
+      ],
+      "welch_audit": {
+        "test_run_by_notebook": "Student's (equal_var=True)",
+        "test_named_in_paper": "Welch's",
+        "student_p": 0.2367313141270534,
+        "welch_p": 0.23478399391069485,
+        "student_p_rounded": "0.24",
+        "welch_p_rounded": "0.23",
+        "paper_p": "0.24",
+        "welch_significant": false
+      }
+    },
+    "completion_time": {
+      "steps": [
+        {
+          "step": "AS SHIPPED",
+          "run": "20261022T150533Z",
+          "file": "completion_time.outputs.txt",
+          "status": "OK"
+        }
+      ],
+      "paper_location": "§4.2.1",
+      "run": "20261022T150533Z",
+      "file": "completion_time.outputs.txt",
+      "repaired": false,
+      "primary": [
+        {
+          "value": "p",
+          "printed": "5.6436e-01",
+          "rounded": "0.56",
+          "paper": "0.56",
+          "decimals": 2,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": 0.5643572899014769,
+          "recompute_6b_rounded": "0.56",
+          "cross_check_agrees": true
+        },
+        {
+          "value": "effect",
+          "printed": "-0.0793",
+          "rounded": "-0.079",
+          "paper": "-0.079",
+          "decimals": 3,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": -0.07925407925407925,
+          "recompute_6b_rounded": "-0.079",
+          "cross_check_agrees": true
+        },
+        {
+          "value": "treatment",
+          "printed": "136.1",
+          "rounded": "136",
+          "paper": "136",
+          "decimals": 0,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": 136.06666666666666,
+          "recompute_6b_rounded": "136",
+          "cross_check_agrees": true
+        },
+        {
+          "value": "control",
+          "printed": "172.6",
+          "rounded": "173",
+          "paper": "173",
+          "decimals": 0,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": 172.63333333333333,
+          "recompute_6b_rounded": "173",
+          "cross_check_agrees": true
+        },
+        {
+          "value": "significance",
+          "printed": "5.6436e-01",
+          "rounded": "p >= 0.05",
+          "paper": "p >= 0.05",
+          "decimals": null,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": 0.5643572899014769,
+          "recompute_6b_rounded": null,
+          "cross_check_agrees": true
+        }
+      ],
+      "status": "REPRODUCED",
+      "cross_check_agrees": true,
+      "ci": [
+        {
+          "group": "treatment",
+          "bound": "lower",
+          "run": "105.5",
+          "paper": 105.5,
+          "authors_stored": "105.5",
+          "recompute_6b": 105.45,
+          "run_vs_paper_within_noise": true,
+          "paper_vs_stored_within_noise": true
+        },
+        {
+          "group": "treatment",
+          "bound": "upper",
+          "run": "180.0",
+          "paper": 180.0,
+          "authors_stored": "180.0",
+          "recompute_6b": 180.0,
+          "run_vs_paper_within_noise": true,
+          "paper_vs_stored_within_noise": true
+        },
+        {
+          "group": "control",
+          "bound": "lower",
+          "run": "118.1",
+          "paper": 118.1,
+          "authors_stored": "118.1",
+          "recompute_6b": 118.08333333333333,
+          "run_vs_paper_within_noise": true,
+          "paper_vs_stored_within_noise": true
+        },
+        {
+          "group": "control",
+          "bound": "upper",
+          "run": "210.0",
+          "paper": 210.0,
+          "authors_stored": "210.0",
+          "recompute_6b": 210.0,
+          "run_vs_paper_within_noise": true,
+          "paper_vs_stored_within_noise": true
+        }
+      ]
+    },
+    "coverage": {
+      "steps": [
+        {
+          "step": "AS SHIPPED",
+          "run": "20261022T150533Z",
+          "file": "coverage.outputs.txt",
+          "status": "OK"
+        }
+      ],
+      "paper_location": "§4.3.2",
+      "run": "20261022T150533Z",
+      "file": "coverage.outputs.txt",
+      "repaired": false,
+      "primary": [
+        {
+          "value": "p",
+          "printed": "4.9001e-01",
+          "rounded": "0.49",
+          "paper": "0.49",
+          "decimals": 2,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": 0.4900102525346619,
+          "recompute_6b_rounded": "0.49",
+          "cross_check_agrees": true
+        },
+        {
+          "value": "effect",
+          "printed": "0.0929",
+          "rounded": "0.09",
+          "paper": "0.09",
+          "decimals": 2,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": 0.09285714285714286,
+          "recompute_6b_rounded": "0.09",
+          "cross_check_agrees": true
+        },
+        {
+          "value": "treatment",
+          "printed": "0.70",
+          "rounded": "0.70",
+          "paper": "0.70",
+          "decimals": 2,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": 0.7,
+          "recompute_6b_rounded": "0.70",
+          "cross_check_agrees": true
+        },
+        {
+          "value": "control",
+          "printed": "0.70",
+          "rounded": "0.70",
+          "paper": "0.70",
+          "decimals": 2,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": 0.7,
+          "recompute_6b_rounded": "0.70",
+          "cross_check_agrees": true
+        },
+        {
+          "value": "significance",
+          "printed": "4.9001e-01",
+          "rounded": "p >= 0.05",
+          "paper": "p >= 0.05",
+          "decimals": null,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": 0.4900102525346619,
+          "recompute_6b_rounded": null,
+          "cross_check_agrees": true
+        }
+      ],
+      "status": "REPRODUCED",
+      "cross_check_agrees": true,
+      "ci": [
+        {
+          "group": "treatment",
+          "bound": "lower",
+          "run": "0.69",
+          "paper": 0.695,
+          "authors_stored": "0.69",
+          "recompute_6b": 0.695,
+          "run_vs_paper_within_noise": true,
+          "paper_vs_stored_within_noise": true
+        },
+        {
+          "group": "treatment",
+          "bound": "upper",
+          "run": "0.71",
+          "paper": 0.71,
+          "authors_stored": "0.71",
+          "recompute_6b": 0.71,
+          "run_vs_paper_within_noise": true,
+          "paper_vs_stored_within_noise": true
+        },
+        {
+          "group": "control",
+          "bound": "lower",
+          "run": "0.69",
+          "paper": 0.69,
+          "authors_stored": "0.69",
+          "recompute_6b": 0.69,
+          "run_vs_paper_within_noise": true,
+          "paper_vs_stored_within_noise": true
+        },
+        {
+          "group": "control",
+          "bound": "upper",
+          "run": "0.71",
+          "paper": 0.74,
+          "authors_stored": "0.71",
+          "recompute_6b": 0.71,
+          "run_vs_paper_within_noise": false,
+          "paper_vs_stored_within_noise": false
+        }
+      ]
+    },
+    "perceived_productivity": {
+      "steps": [
+        {
+          "step": "AS SHIPPED",
+          "run": "20261022T150533Z",
+          "file": "perceived_productivity.outputs.txt",
+          "status": "FAILED"
+        },
+        {
+          "step": "REPAIRS R1",
+          "run": "20261022T151200Z",
+          "file": "perceived_productivity.repaired-R1.outputs.txt",
+          "status": "FAILED"
+        },
+        {
+          "step": "REPAIRS R1,R2",
+          "run": "20261022T151209Z",
+          "file": "perceived_productivity.repaired-R1-R2.outputs.txt",
+          "status": "OK"
+        }
+      ],
+      "paper_location": "§4.2.2",
+      "run": "20261022T151209Z",
+      "file": "perceived_productivity.repaired-R1-R2.outputs.txt",
+      "repaired": true,
+      "primary": [
+        {
+          "value": "p",
+          "printed": "3.7134e-01",
+          "rounded": "0.37",
+          "paper": "0.37",
+          "decimals": 2,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": 0.37134417265146946,
+          "recompute_6b_rounded": "0.37",
+          "cross_check_agrees": true
+        },
+        {
+          "value": "effect",
+          "printed": "-0.2128",
+          "rounded": "-0.21",
+          "paper": "-0.21",
+          "decimals": 2,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": -0.21281066027050208,
+          "recompute_6b_rounded": "-0.21",
+          "cross_check_agrees": true
+        },
+        {
+          "value": "treatment",
+          "printed": "3.95",
+          "rounded": "3.95",
+          "paper": "3.95",
+          "decimals": 2,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": 3.9461538461538455,
+          "recompute_6b_rounded": "3.95",
+          "cross_check_agrees": true
+        },
+        {
+          "value": "control",
+          "printed": "4.06",
+          "rounded": "4.06",
+          "paper": "4.06",
+          "decimals": 2,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": 4.0636363636363635,
+          "recompute_6b_rounded": "4.06",
+          "cross_check_agrees": true
+        },
+        {
+          "value": "significance",
+          "printed": "3.7134e-01",
+          "rounded": "p >= 0.05",
+          "paper": "p >= 0.05",
+          "decimals": null,
+          "match": true,
+          "on_boundary": false,
+          "recompute_6b": 0.37134417265146946,
+          "recompute_6b_rounded": null,
+          "cross_check_agrees": true
+        }
+      ],
+      "status": "REPRODUCED",
+      "cross_check_agrees": true,
+      "ci": [
+        {
+          "group": "treatment",
+          "bound": "lower",
+          "run": "3.77",
+          "paper": 3.77,
+          "authors_stored": "3.77",
+          "recompute_6b": 3.766666666666666,
+          "run_vs_paper_within_noise": true,
+          "paper_vs_stored_within_noise": true
+        },
+        {
+          "group": "treatment",
+          "bound": "upper",
+          "run": "4.12",
+          "paper": 4.12,
+          "authors_stored": "4.12",
+          "recompute_6b": 4.123076923076923,
+          "run_vs_paper_within_noise": true,
+          "paper_vs_stored_within_noise": true
+        },
+        {
+          "group": "control",
+          "bound": "lower",
+          "run": "3.88",
+          "paper": 3.88,
+          "authors_stored": "3.88",
+          "recompute_6b": 3.8848484848484843,
+          "run_vs_paper_within_noise": true,
+          "paper_vs_stored_within_noise": true
+        },
+        {
+          "group": "control",
+          "bound": "upper",
+          "run": "4.24",
+          "paper": 4.24,
+          "authors_stored": "4.24",
+          "recompute_6b": 4.236363636363635,
+          "run_vs_paper_within_noise": true,
+          "paper_vs_stored_within_noise": true
+        }
+      ],
+      "welch_audit": {
+        "test_run_by_notebook": "Student's (equal_var=True)",
+        "test_named_in_paper": "Welch's",
+        "student_p": 0.37134417265146946,
+        "welch_p": 0.367546835800754,
+        "student_p_rounded": "0.37",
+        "welch_p_rounded": "0.37",
+        "paper_p": "0.37",
+        "welch_significant": false
+      }
+    }
+  }
+}
