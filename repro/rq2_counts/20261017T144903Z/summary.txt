@@ -1,0 +1,34 @@
+run 20261017T144903Z
+75 entries, 106 smell file records, 1781 PMD file records (files with at least one violation)
+pmd_total: sum 42666  range 466 - 1730
+PMD processingErrors, configurationErrors, suppressedViolations: empty in all 75 entries
+PMD records outside ./src/main/ and ./src/test/ (counted): id 56: 8 files, 145 violations; id 60: 4 files, 119 violations
+pooled findings: introduced 62  degraded 40  unchanged 29  improved 6  fixed 32
+net_smell_change: sum -64  range -4 - 6
+
+fallback (a), Table 8 counts: 18 of 18 printed rows match; 7 of 7 unprinted cells pool to 0
+  ok   fixed      Bumpy Road Ahead     expected  6  pooled  6
+  ok   fixed      Code Duplication     expected  3  pooled  3
+  ok   fixed      Complex Conditional  expected  2  pooled  2
+  ok   fixed      Complex Method       expected 12  pooled 12
+  ok   fixed      Primitive Obsession  expected  1  pooled  1
+  ok   improved   Complex Method       expected  6  pooled  6
+  ok   unchanged  Bumpy Road Ahead     expected  5  pooled  5
+  ok   unchanged  Code Duplication     expected 10  pooled 10
+  ok   unchanged  Complex Method       expected  4  pooled  4
+  ok   unchanged  Primitive Obsession  expected  4  pooled  4
+  ok   degraded   Bumpy Road Ahead     expected  4  pooled  4
+  ok   degraded   Complex Conditional  expected  1  pooled  1
+  ok   degraded   Complex Method       expected 35  pooled 35
+  ok   introduced Bumpy Road Ahead     expected  3  pooled  3
+  ok   introduced Code Duplication     expected  8  pooled  8
+  ok   introduced Complex Conditional  expected  8  pooled  8
+  ok   introduced Complex Method       expected 19  pooled 19
+  ok   introduced Primitive Obsession  expected 13  pooled 13
+  ok   degraded   Code Duplication     expected  0  pooled  0  (not printed)
+  ok   degraded   Primitive Obsession  expected  0  pooled  0  (not printed)
+  ok   unchanged  Complex Conditional  expected  0  pooled  0  (not printed)
+  ok   improved   Bumpy Road Ahead     expected  0  pooled  0  (not printed)
+  ok   improved   Code Duplication     expected  0  pooled  0  (not printed)
+  ok   improved   Complex Conditional  expected  0  pooled  0  (not printed)
+  ok   improved   Primitive Obsession  expected  0  pooled  0  (not printed)

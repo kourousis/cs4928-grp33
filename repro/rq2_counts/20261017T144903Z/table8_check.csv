@@ -1,0 +1,26 @@
+change_type,category,printed_in_paper,paper_T,paper_C,expected_count,pooled_count,match
+fixed,Bumpy Road Ahead,True,0.1,0.06,6,6,True
+fixed,Code Duplication,True,0.05,0.03,3,3,True
+fixed,Complex Conditional,True,0.03,0.03,2,2,True
+fixed,Complex Method,True,0.23,0.09,12,12,True
+fixed,Primitive Obsession,True,0.03,0.0,1,1,True
+improved,Complex Method,True,0.07,0.09,6,6,True
+unchanged,Bumpy Road Ahead,True,0.05,0.09,5,5,True
+unchanged,Code Duplication,True,0.1,0.17,10,10,True
+unchanged,Complex Method,True,0.03,0.09,4,4,True
+unchanged,Primitive Obsession,True,0.05,0.06,4,4,True
+degraded,Bumpy Road Ahead,True,0.05,0.06,4,4,True
+degraded,Complex Conditional,True,0.03,0.0,1,1,True
+degraded,Complex Method,True,0.6,0.31,35,35,True
+introduced,Bumpy Road Ahead,True,0.07,0.0,3,3,True
+introduced,Code Duplication,True,0.1,0.11,8,8,True
+introduced,Complex Conditional,True,0.17,0.03,8,8,True
+introduced,Complex Method,True,0.15,0.37,19,19,True
+introduced,Primitive Obsession,True,0.1,0.26,13,13,True
+degraded,Code Duplication,False,0.0,0.0,0,0,True
+degraded,Primitive Obsession,False,0.0,0.0,0,0,True
+unchanged,Complex Conditional,False,0.0,0.0,0,0,True
+improved,Bumpy Road Ahead,False,0.0,0.0,0,0,True
+improved,Code Duplication,False,0.0,0.0,0,0,True
+improved,Complex Conditional,False,0.0,0.0,0,0,True
+improved,Primitive Obsession,False,0.0,0.0,0,0,True

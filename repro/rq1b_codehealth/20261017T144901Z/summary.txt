@@ -1,0 +1,11 @@
+run 20261017T144901Z
+75 entries, 1774 file lines, 84 null scores (in 74 entries, excluded)
+
+[recomputed_unweighted_all]  n = 75
+  mean 8.637197335670443  sd 0.1938954345830709  range 8.38409090909091 - 9.31625
+
+[recomputed_unweighted_src_main]  n = 75
+  mean 8.26621374591028  sd 0.2379440238275769  range 7.877857142857143 - 9.092
+
+[published_codehealth]  n = 75
+  mean 8.4656  sd 0.1684928420967426  range 8.07 - 8.89
