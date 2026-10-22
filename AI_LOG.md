@@ -31,6 +31,28 @@ Adam reviewed the case table and examples covering mixed changes (ID 1), an
 empty delta report (ID 6), and finding-level versus nested change labels
 (ID 11). The work is ready for repository submission and group review.
 
+## M2 rerun and freeze - 22 October 2026
+
+James and Claude reran all tests and notebooks on 22 October. From those
+results, James and Enda agreed the M2 position below; Claude's output fed into
+it but the conclusions are the team's.
+
+- **RQ2, BLOCKED (contingency route).** The PMD and code-smell files cannot be
+  matched to participants, so they cannot be split into AI and manual groups.
+  We asked the authors for the mapping on 17 Oct (GitHub issue #1) and have had
+  no reply. As planned, we ran the two fallbacks instead. First, the raw smell
+  counts add up exactly to the paper's Table 8 (18 of 18 rows), which confirms
+  the data behind that table. Second, we inspected the first 12 cases by hand.
+- **RQ3:** design stage, Week 9.
+- **Main threat:** the paper and notebooks say they use Welch's t-test, but the
+  code runs Student's t-test. Switching would barely change the p-values (e.g.
+  0.237 to 0.235) and no conclusion.
+
+| Contribution / influence | Decision / review | Verification |
+|---|---|---|
+| Claude reran the full test suite and notebooks and summarised the results. | James and Enda reviewed the output and agreed the RQ2/RQ3/threat position above. | [M2_REPRO.md](M2_REPRO.md) and the saved rerun outputs. |
+| Claude suggested freezing the repository state with git tags so the reported results point at a fixed commit. | Accepted by James and Enda. Three tags created: `M1_PLAN` (`618005b`), `M2_REPRO` and `PRE_EVENT_A` (both `38920e8`). | `git tag` / `git show <tag>`; anyone can check out a tag to reproduce the recorded state. |
+
 ## Adding future entries
 
 For subsequent work, record the date, AI tool, material suggestion, team
