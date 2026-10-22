@@ -1,0 +1,65 @@
+STATUS: OK
+--- cell 0 (execution_count=1) ---
+--- cell 1 (execution_count=2) ---
+--- cell 2 (execution_count=3) ---
+--- cell 3 (execution_count=4) ---
+--- cell 6 (execution_count=5) ---
+[figure]
+--- cell 8 (execution_count=6) ---
+[figure]
+--- cell 10 (execution_count=7) ---
+Shapiro–Wilk Test for Normality (in seconds):
+  Treatment: W = 0.7718, p = 2.3142e-06
+  Control:   W = 0.7787, p = 1.2986e-05
+--- cell 12 (execution_count=8) ---
+Wilcoxon Rank-Sum Test (Completion Time in seconds):
+  Statistic = -0.5764
+  p-value   = 5.6436e-01
+--- cell 14 (execution_count=9) ---
+--- cell 15 (execution_count=10) ---
+Cliff’s Delta: δ=-0.0793
+Effect Size Interpretation: negligible
+--- cell 16 (execution_count=11) ---
+[figure]
+Bootstrap Confidence Intervals (95% CI) for Task 2 (Median) [Minutes]:
+Treatment (AI-assisted): 136.1 min  (95% CI: 105.5 - 180.0 min)
+Control (Manual):       172.6 min  (95% CI: 118.1 - 210.0 min)
+--- cell 17 (execution_count=12) ---
+Bootstrap CI for the median difference (Treatment - Control):
+Median difference: -36.6 minutes
+95% CI: [-90.0, 37.6] minutes
+--- cell 19 (execution_count=13) ---
+Shapiro–Wilk Test for Normality (Task 1, in seconds):
+  AI-assisted: W = 0.8292, p = 6.5532e-05
+  Manual:      W = 0.8205, p = 1.0128e-04
+--- cell 21 (execution_count=14) ---
+Wilcoxon Rank-Sum Test (Completion Time in seconds):
+  Statistic = -2.9734
+  p-value   = 2.9451e-03
+--- cell 23 (execution_count=15) ---
+Cliff’s Delta: δ=-0.4201
+Effect Size Interpretation: medium
+--- cell 24 (execution_count=16) ---
+AI-assisted participants (seconds):
+count       36.00
+mean     11159.56
+std       7317.56
+min       3290.00
+25%       5726.75
+50%       9120.50
+75%      13050.00
+max      36000.00
+Name: clean_time, dtype: float64
+
+Manual participants (seconds):
+count       32.00
+mean     16031.78
+std       9366.93
+min       3600.00
+25%      10800.00
+50%      13167.50
+75%      18300.00
+max      52200.00
+Name: clean_time, dtype: float64
+
+Percentage difference in medians: 30.7% (reduction from manual to AI)

@@ -1,0 +1,6 @@
+run 20261022T151209Z  repo=/srv/cs4928-grp33  mode=DECLARED REPAIRS R1,R2
+[perceived_productivity] applied declared repair: 'pd.read_csv("data/task1_preprocessed.csv")' -> 'pd.read_csv("../data/task1_preprocessed.csv")'
+[perceived_productivity] applied declared repair: 'pd.read_csv("data/task2_preprocessed.csv")' -> 'pd.read_csv("../data/task2_preprocessed.csv")'
+[perceived_productivity] applied declared repair: 'from scipy.stats import ttest_ind' -> 'from scipy.stats import ttest_ind\nfrom scipy.stats import shapiro'
+[perceived_productivity] OK in 52s
+done -> /srv/cs4928-grp33/repro/runs/20261022T151209Z

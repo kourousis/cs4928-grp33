@@ -1,0 +1,20 @@
+STATUS: FAILED
+Cells after the failing cell were NOT executed.
+--- cell 0 (execution_count=1) ---
+--- cell 1 (execution_count=2) ---
+ERROR FileNotFoundError: [Errno 2] No such file or directory: 'data/task1_preprocessed.csv'
+--- cell 2 (execution_count=None) ---
+--- cell 3 (execution_count=None) ---
+--- cell 4 (execution_count=None) ---
+--- cell 6 (execution_count=None) ---
+--- cell 8 (execution_count=None) ---
+--- cell 11 (execution_count=None) ---
+--- cell 12 (execution_count=None) ---
+--- cell 14 (execution_count=None) ---
+--- cell 15 (execution_count=None) ---
+--- cell 16 (execution_count=None) ---
+--- cell 18 (execution_count=None) ---
+--- cell 20 (execution_count=None) ---
+--- cell 22 (execution_count=None) ---
+--- cell 23 (execution_count=None) ---
+--- cell 24 (execution_count=None) ---
