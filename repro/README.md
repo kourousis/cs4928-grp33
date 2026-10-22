@@ -68,3 +68,19 @@ first, and re-run.
 
 `recompute_rq1b.py` and `count_rq2.py` import the hash function from `recompute_rq1.py`. The same seed
 gives the same CIs only with the same NumPy version (see `environment.txt`).
+
+## Results and checks (tasks 7b, 7e)
+
+| Script | Task | Writes to | What it does |
+|---|---|---|---|
+| `rq1_status.py` | 7b | `repro/rq1_status/<UTC>/` | The RQ1a status per metric and the headline status, from the 6a notebook runs, by the M1_PLAN.md decision rule. Also compares CIs with the paper and the authors' stored output, cross-checks every primary value against the 6b recompute, and reports Welch's next to Student's |
+| `check_fresh_clone.py` | 7e | `repro/fresh_clone/<UTC>/` | Clones the repo at a ref, builds the pinned environment with `uv`, runs every test and script (6b, 6c, 6d, the 6e `--check`, 6a and 7b), and compares each new output with the newest committed one. Temporary paths in its report are masked |
+
+```
+.venv/bin/python repro/rq1_status.py repro/runs/<as shipped> repro/runs/<R1> repro/runs/<R1,R2>
+.venv/bin/python repro/check_fresh_clone.py                    # origin main; ~10-35 min
+.venv/bin/python repro/check_fresh_clone.py --skip-notebooks   # scripts only, ~1 min
+```
+
+`rq1_status.py` takes each metric from the first OK step of its ladder (as shipped, then R1, then
+R1,R2). It refuses a repaired run that is not later than the step before it, or one used after an OK step. A metric with no as-shipped run is IN PROGRESS.

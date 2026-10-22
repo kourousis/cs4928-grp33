@@ -1,0 +1,56 @@
+run 20261022T153138Z  runs=['20261022T150533Z', '20261022T151200Z', '20261022T151209Z']  recompute=20261017T144852Z
+
+RQ1a overall: REPRODUCED
+
+[codehealth]  REPRODUCED  (paper §4.3.1)
+  step AS SHIPPED       run 20261022T150533Z  OK
+  p            printed 2.3673e-01  -> 0.24       paper 0.24       match
+  effect       printed 0.2761      -> 0.28       paper 0.28       match
+  treatment    printed 8.49        -> 8.49       paper 8.49       match
+  control      printed 8.44        -> 8.44       paper 8.44       match
+  significance printed 2.3673e-01  -> p >= 0.05  paper p >= 0.05  match
+  CI treatment lower run 8.43    paper 8.43    stored 8.43    6b 8.4347
+  CI treatment upper run 8.54    paper 8.54    stored 8.54    6b 8.5403
+  CI control   lower run 8.39    paper 8.39    stored 8.39    6b 8.3889
+  CI control   upper run 8.49    paper 8.49    stored 8.49    6b 8.4949
+  Welch (audit): p = 0.2348 -> 0.23; Student p -> 0.24; paper says Welch's, p = 0.24
+
+[completion_time]  REPRODUCED  (paper §4.2.1)
+  step AS SHIPPED       run 20261022T150533Z  OK
+  p            printed 5.6436e-01  -> 0.56       paper 0.56       match
+  effect       printed -0.0793     -> -0.079     paper -0.079     match
+  treatment    printed 136.1       -> 136        paper 136        match
+  control      printed 172.6       -> 173        paper 173        match
+  significance printed 5.6436e-01  -> p >= 0.05  paper p >= 0.05  match
+  CI treatment lower run 105.5   paper 105.5   stored 105.5   6b 105.4500
+  CI treatment upper run 180.0   paper 180.0   stored 180.0   6b 180.0000
+  CI control   lower run 118.1   paper 118.1   stored 118.1   6b 118.0833
+  CI control   upper run 210.0   paper 210.0   stored 210.0   6b 210.0000
+
+[coverage]  REPRODUCED  (paper §4.3.2)
+  step AS SHIPPED       run 20261022T150533Z  OK
+  p            printed 4.9001e-01  -> 0.49       paper 0.49       match
+  effect       printed 0.0929      -> 0.09       paper 0.09       match
+  treatment    printed 0.70        -> 0.70       paper 0.70       match
+  control      printed 0.70        -> 0.70       paper 0.70       match
+  significance printed 4.9001e-01  -> p >= 0.05  paper p >= 0.05  match
+  CI treatment lower run 0.69    paper 0.695   stored 0.69    6b 0.6950
+  CI treatment upper run 0.71    paper 0.71    stored 0.71    6b 0.7100
+  CI control   lower run 0.69    paper 0.69    stored 0.69    6b 0.6900
+  CI control   upper run 0.71    paper 0.74    stored 0.71    6b 0.7100  run vs paper OUTSIDE noise  AUDIT: paper vs stored differ
+
+[perceived_productivity]  REPRODUCED  (paper §4.2.2)
+  step AS SHIPPED       run 20261022T150533Z  FAILED
+  step REPAIRS R1       run 20261022T151200Z  FAILED
+  step REPAIRS R1,R2    run 20261022T151209Z  OK
+  ran only with declared repairs: record as a deviation
+  p            printed 3.7134e-01  -> 0.37       paper 0.37       match
+  effect       printed -0.2128     -> -0.21      paper -0.21      match
+  treatment    printed 3.95        -> 3.95       paper 3.95       match
+  control      printed 4.06        -> 4.06       paper 4.06       match
+  significance printed 3.7134e-01  -> p >= 0.05  paper p >= 0.05  match
+  CI treatment lower run 3.77    paper 3.77    stored 3.77    6b 3.7667
+  CI treatment upper run 4.12    paper 4.12    stored 4.12    6b 4.1231
+  CI control   lower run 3.88    paper 3.88    stored 3.88    6b 3.8848
+  CI control   upper run 4.24    paper 4.24    stored 4.24    6b 4.2364
+  Welch (audit): p = 0.3675 -> 0.37; Student p -> 0.37; paper says Welch's, p = 0.37
