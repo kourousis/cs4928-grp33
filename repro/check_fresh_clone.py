@@ -9,6 +9,7 @@ compares the new outputs with the newest committed output folder of each:
     recompute_rq1.py    repro/recompute/<newest>   every number, CIs too (same seed, same NumPy)
     recompute_rq1b.py   repro/rq1b_codehealth/...  every file except environment.txt
     count_rq2.py        repro/rq2_counts/...       every file except environment.txt
+    rq3_measure.py      repro/rq3_measure/...      every file except environment.txt
     inspect_rq2_sample.py --check  evidence/rq2_qualitative/generated  every file (its own check)
     run_all.py          repro/runs/<newest>        the Phase 2 primary values (CIs are unseeded)
     rq1_status.py       repro/rq1_status/<newest>  every per-metric status and the headline
@@ -39,6 +40,7 @@ SCRIPTS = [  # (script, output folder, extra args)
     ("recompute_rq1.py", "recompute", []),
     ("recompute_rq1b.py", "rq1b_codehealth", []),
     ("count_rq2.py", "rq2_counts", []),
+    ("rq3_measure.py", "rq3_measure", []),
 ]
 
 

@@ -1,0 +1,38 @@
+RQ3 measure at PRE_EVENT_A (38920e8c3cb8bc3d7736168dc24f1dc2dbcd2237), window = 5 lines
+run 20261029T132012Z
+
+file                                       cells lines  SLOC logic defs   dup   dup%
+frequentist/codehealth.ipynb               20/31   348   242   201    4    47  23.4%
+frequentist/completion_time.ipynb          16/25   267   180   169    3    66  39.1%
+frequentist/coverage.ipynb                 12/18   210   151   130    3    40  30.8%
+frequentist/perceived_productivity.ipynb   17/25   279   189   155    3    10   6.5%
+TOTAL                                             1104   762   655   13   163  24.9%
+  cells = code cells / all cells; logic = logical lines (statements); dup = logical lines in a cross-file clone run; dup% = dup / logic
+
+Functions defined in more than one file:
+  bootstrap_ci_mean                x2  identical              SLOC [6, 5]  (codehealth, perceived_productivity)
+  bootstrap_ci_median              x2  identical              SLOC [6, 6]  (completion_time, coverage)
+  bootstrap_ci_median_difference   x2  2 AST versions         SLOC [13, 17]  (completion_time[v0], coverage[v1])
+  cliffs_delta                     x3  2 AST versions         SLOC [13, 13, 8]  (codehealth[v0], completion_time[v0], coverage[v1])
+  cohens_d                         x2  2 AST versions         SLOC [9, 9]  (codehealth[v0], perceived_productivity[v1])
+Functions in one file only: bootstrap_ci_mean_difference, cronbach_alpha
+Copied functions: 5 names, 105 SLOC in all copies
+
+Re-run faults:
+  codehealth.ipynb
+    data paths:       ['../data/task1_preprocessed.csv', '../data/task2_preprocessed.csv']
+    undefined names:  -
+    random calls:     np.random.choice x3; seeds: none  -> UNSEEDED
+  completion_time.ipynb
+    data paths:       ['../data/task1_preprocessed.csv', '../data/task2_preprocessed.csv']
+    undefined names:  -
+    random calls:     np.random.choice x3; seeds: none  -> UNSEEDED
+  coverage.ipynb
+    data paths:       ['../data/task1_preprocessed.csv', '../data/task2_preprocessed.csv']
+    undefined names:  -
+    random calls:     np.random.choice x3; seeds: none  -> UNSEEDED
+  perceived_productivity.ipynb
+    data paths:       ['data/task1_preprocessed.csv', 'data/task2_preprocessed.csv']
+    undefined names:  ['shapiro']
+    random calls:     np.random.choice x1; seeds: none  -> UNSEEDED
+  data path prefixes in use: ['../data/', 'data/']
