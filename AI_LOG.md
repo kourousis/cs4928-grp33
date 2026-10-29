@@ -61,6 +61,13 @@ it but the conclusions are the team's.
 | A first, never-committed draft of the script labelled 3 of the 5 copied functions "drifted" because their ASTs differ. Reading the copies showed that only `cliffs_delta` behaves differently (NaN handling); the other two are equivalent rewrites. | The output now says "AST versions", and the behaviour call is made by hand in `RQ3_DESIGN_PROBLEM.md` (8e). | Call sites checked: every current caller passes NaN-free data, so no reported number is affected. |
 | Claude drafted `RQ3_DESIGN_PROBLEM.md` (8e), including the case for changing nothing. A second Claude agent then reviewed 8c/8e against the notebooks and data. It found a wrong count (82 → 80 duplicated lines inside functions), wrong NaN reasoning for the `cliffs_delta` callers, causal wording about R1 that the evidence doesn't support, and blind spots in the seed and data-path checks. | All fixed before commit; Enda reviewed the result. | Each claim points to a cell, a run log or a measure output; tests added for the seed and git-ref cases. |
 
+## Event A plan - 29 October 2026
+
+| Contribution / influence | Decision / review | Verification |
+|---|---|---|
+| Claude drafted `EVENT_A_PLAN.md` (8a): the held-out set (IDs 12–23, the next 12 in the M2 order), a wrapper that runs the unchanged 6e script on those IDs, and the prediction thresholds P1–P4 built from the 6e results. | Accepted by Enda on 29 Oct, before any held-out entry was opened. Frozen with the tag `EVENT_A_PLAN`. | The M2 values in the plan trace to `evidence/rq2_qualitative/` (README, `generated/findings.csv`, `generated/pmd_top_rules.csv`). While drafting and reviewing this plan, Claude did not open IDs 12–23, in the JSON files or the 6d per-entry CSVs. |
+| A second Claude agent reviewed the plan before the tag. It found that editing the 6e script would break its own `--check` (the script hashes itself), that the tracker prediction was scheduled too late, an understated 6d disclosure, a wrong claim that the plan is committed on `main`, and that ID 11's finding isn't about `search`. | All fixed before the tag: the 6e script stays unchanged and a wrapper calls it; the tracker prediction is step 0. | Checked by Claude against `repro/inspect_rq2_sample.py` and the 6e evidence (IDs 0–11 only). |
+
 ## Adding future entries
 
 For subsequent work, record the date, AI tool, material suggestion, team
