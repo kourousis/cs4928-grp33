@@ -68,6 +68,17 @@ it but the conclusions are the team's.
 | Claude drafted `EVENT_A_PLAN.md` (8a): the held-out set (IDs 12–23, the next 12 in the M2 order), a wrapper that runs the unchanged 6e script on those IDs, and the prediction thresholds P1–P4 built from the 6e results. | Accepted by Enda on 29 Oct, before any held-out entry was opened. Frozen with the tag `EVENT_A_PLAN`. | The M2 values in the plan trace to `evidence/rq2_qualitative/` (README, `generated/findings.csv`, `generated/pmd_top_rules.csv`). While drafting and reviewing this plan, Claude did not open IDs 12–23, in the JSON files or the 6d per-entry CSVs. |
 | A second Claude agent reviewed the plan before the tag. It found that editing the 6e script would break its own `--check` (the script hashes itself), that the tracker prediction was scheduled too late, an understated 6d disclosure, a wrong claim that the plan is committed on `main`, and that ID 11's finding isn't about `search`. | All fixed before the tag: the 6e script stays unchanged and a wrapper calls it; the tracker prediction is step 0. | Checked by Claude against `repro/inspect_rq2_sample.py` and the 6e evidence (IDs 0–11 only). |
 
+## Task 7a summary - 29 October 2026
+
+Codex assisted preparation of the [7a summary](evidence/week7/7a_results_review.md)
+and checked its four rounded p-values and effect sizes against the saved outputs.
+
+## Task 9a alternatives - 29 October 2026
+
+Codex assisted the [alternatives comparison](evidence/design/9a_alternatives.md).
+Adam selected B for central maintenance of fixes and tests, conditional on
+preserving results; verification requirements follow M1's existing RQ3 rule.
+
 ## Adding future entries
 
 For subsequent work, record the date, AI tool, material suggestion, team
