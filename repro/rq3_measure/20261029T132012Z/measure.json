@@ -1,0 +1,331 @@
+{
+  "meta": {
+    "task": "8c",
+    "ref": "PRE_EVENT_A",
+    "commit": "38920e8c3cb8bc3d7736168dc24f1dc2dbcd2237",
+    "window": 5,
+    "files": [
+      "frequentist/codehealth.ipynb",
+      "frequentist/completion_time.ipynb",
+      "frequentist/coverage.ipynb",
+      "frequentist/perceived_productivity.ipynb"
+    ],
+    "run_utc": "20261029T132012Z"
+  },
+  "totals": {
+    "files": 4,
+    "code_lines": 1104,
+    "sloc": 762,
+    "logical_lines": 655,
+    "duplicated_logical_lines": 163,
+    "duplicated_share": 0.2489,
+    "functions_defined": 13,
+    "distinct_function_names": 7,
+    "functions_copied_across_files": 5,
+    "copied_function_sloc": 105,
+    "copied_functions_not_identical": [
+      "bootstrap_ci_median_difference",
+      "cliffs_delta",
+      "cohens_d"
+    ],
+    "files_with_undefined_names": [
+      "frequentist/perceived_productivity.ipynb"
+    ],
+    "files_with_unseeded_random": [
+      "frequentist/codehealth.ipynb",
+      "frequentist/completion_time.ipynb",
+      "frequentist/coverage.ipynb",
+      "frequentist/perceived_productivity.ipynb"
+    ],
+    "distinct_data_path_prefixes": [
+      "../data/",
+      "data/"
+    ]
+  },
+  "files": {
+    "frequentist/codehealth.ipynb": {
+      "cells": 31,
+      "code_cells": 20,
+      "code_lines": 348,
+      "sloc": 242,
+      "functions": [
+        {
+          "name": "cohens_d",
+          "cell": 20,
+          "sloc": 9
+        },
+        {
+          "name": "bootstrap_ci_mean",
+          "cell": 21,
+          "sloc": 6
+        },
+        {
+          "name": "bootstrap_ci_mean_difference",
+          "cell": 22,
+          "sloc": 17
+        },
+        {
+          "name": "cliffs_delta",
+          "cell": 28,
+          "sloc": 13
+        }
+      ],
+      "faults": {
+        "data_paths": [
+          "../data/task1_preprocessed.csv",
+          "../data/task2_preprocessed.csv"
+        ],
+        "undefined_names": [],
+        "random_calls": {
+          "np.random.choice": 3
+        },
+        "seed_calls": [],
+        "unseeded_random": true
+      },
+      "logical_lines": 201,
+      "duplicated_logical_lines": 47,
+      "duplicated_share": 0.2338
+    },
+    "frequentist/completion_time.ipynb": {
+      "cells": 25,
+      "code_cells": 16,
+      "code_lines": 267,
+      "sloc": 180,
+      "functions": [
+        {
+          "name": "cliffs_delta",
+          "cell": 14,
+          "sloc": 13
+        },
+        {
+          "name": "bootstrap_ci_median",
+          "cell": 16,
+          "sloc": 6
+        },
+        {
+          "name": "bootstrap_ci_median_difference",
+          "cell": 17,
+          "sloc": 13
+        }
+      ],
+      "faults": {
+        "data_paths": [
+          "../data/task1_preprocessed.csv",
+          "../data/task2_preprocessed.csv"
+        ],
+        "undefined_names": [],
+        "random_calls": {
+          "np.random.choice": 3
+        },
+        "seed_calls": [],
+        "unseeded_random": true
+      },
+      "logical_lines": 169,
+      "duplicated_logical_lines": 66,
+      "duplicated_share": 0.3905
+    },
+    "frequentist/coverage.ipynb": {
+      "cells": 18,
+      "code_cells": 12,
+      "code_lines": 210,
+      "sloc": 151,
+      "functions": [
+        {
+          "name": "cliffs_delta",
+          "cell": 15,
+          "sloc": 8
+        },
+        {
+          "name": "bootstrap_ci_median",
+          "cell": 16,
+          "sloc": 6
+        },
+        {
+          "name": "bootstrap_ci_median_difference",
+          "cell": 17,
+          "sloc": 17
+        }
+      ],
+      "faults": {
+        "data_paths": [
+          "../data/task1_preprocessed.csv",
+          "../data/task2_preprocessed.csv"
+        ],
+        "undefined_names": [],
+        "random_calls": {
+          "np.random.choice": 3
+        },
+        "seed_calls": [],
+        "unseeded_random": true
+      },
+      "logical_lines": 130,
+      "duplicated_logical_lines": 40,
+      "duplicated_share": 0.3077
+    },
+    "frequentist/perceived_productivity.ipynb": {
+      "cells": 25,
+      "code_cells": 17,
+      "code_lines": 279,
+      "sloc": 189,
+      "functions": [
+        {
+          "name": "cronbach_alpha",
+          "cell": 8,
+          "sloc": 6
+        },
+        {
+          "name": "cohens_d",
+          "cell": 22,
+          "sloc": 9
+        },
+        {
+          "name": "bootstrap_ci_mean",
+          "cell": 23,
+          "sloc": 5
+        }
+      ],
+      "faults": {
+        "data_paths": [
+          "data/task1_preprocessed.csv",
+          "data/task2_preprocessed.csv"
+        ],
+        "undefined_names": [
+          "shapiro"
+        ],
+        "random_calls": {
+          "np.random.choice": 1
+        },
+        "seed_calls": [],
+        "unseeded_random": true
+      },
+      "logical_lines": 155,
+      "duplicated_logical_lines": 10,
+      "duplicated_share": 0.0645
+    }
+  },
+  "function_groups": [
+    {
+      "name": "bootstrap_ci_mean",
+      "files": [
+        "frequentist/codehealth.ipynb",
+        "frequentist/perceived_productivity.ipynb"
+      ],
+      "copies": 2,
+      "in_files": 2,
+      "sloc_each": [
+        6,
+        5
+      ],
+      "variants": 1,
+      "variant_each": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bootstrap_ci_mean_difference",
+      "files": [
+        "frequentist/codehealth.ipynb"
+      ],
+      "copies": 1,
+      "in_files": 1,
+      "sloc_each": [
+        17
+      ],
+      "variants": 1,
+      "variant_each": [
+        0
+      ]
+    },
+    {
+      "name": "bootstrap_ci_median",
+      "files": [
+        "frequentist/completion_time.ipynb",
+        "frequentist/coverage.ipynb"
+      ],
+      "copies": 2,
+      "in_files": 2,
+      "sloc_each": [
+        6,
+        6
+      ],
+      "variants": 1,
+      "variant_each": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "bootstrap_ci_median_difference",
+      "files": [
+        "frequentist/completion_time.ipynb",
+        "frequentist/coverage.ipynb"
+      ],
+      "copies": 2,
+      "in_files": 2,
+      "sloc_each": [
+        13,
+        17
+      ],
+      "variants": 2,
+      "variant_each": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "cliffs_delta",
+      "files": [
+        "frequentist/codehealth.ipynb",
+        "frequentist/completion_time.ipynb",
+        "frequentist/coverage.ipynb"
+      ],
+      "copies": 3,
+      "in_files": 3,
+      "sloc_each": [
+        13,
+        13,
+        8
+      ],
+      "variants": 2,
+      "variant_each": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "name": "cohens_d",
+      "files": [
+        "frequentist/codehealth.ipynb",
+        "frequentist/perceived_productivity.ipynb"
+      ],
+      "copies": 2,
+      "in_files": 2,
+      "sloc_each": [
+        9,
+        9
+      ],
+      "variants": 2,
+      "variant_each": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "cronbach_alpha",
+      "files": [
+        "frequentist/perceived_productivity.ipynb"
+      ],
+      "copies": 1,
+      "in_files": 1,
+      "sloc_each": [
+        6
+      ],
+      "variants": 1,
+      "variant_each": [
+        0
+      ]
+    }
+  ]
+}

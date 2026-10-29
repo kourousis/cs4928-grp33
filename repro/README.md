@@ -74,7 +74,7 @@ gives the same CIs only with the same NumPy version (see `environment.txt`).
 | Script | Task | Writes to | What it does |
 |---|---|---|---|
 | `rq1_status.py` | 7b | `repro/rq1_status/<UTC>/` | The RQ1a status per metric and the headline status, from the 6a notebook runs, by the M1_PLAN.md decision rule. Also compares CIs with the paper and the authors' stored output, cross-checks every primary value against the 6b recompute, and reports Welch's next to Student's |
-| `check_fresh_clone.py` | 7e | `repro/fresh_clone/<UTC>/` | Clones the repo at a ref, builds the pinned environment with `uv`, runs every test and script (6b, 6c, 6d, the 6e `--check`, 6a and 7b), and compares each new output with the newest committed one. Temporary paths in its report are masked |
+| `check_fresh_clone.py` | 7e | `repro/fresh_clone/<UTC>/` | Clones the repo at a ref, builds the pinned environment with `uv`, runs every test and script (6b, 6c, 6d, 8c, the 6e `--check`, 6a and 7b), and compares each new output with the newest committed one. Temporary paths in its report are masked |
 
 ```
 .venv/bin/python repro/rq1_status.py repro/runs/<as shipped> repro/runs/<R1> repro/runs/<R1,R2>
@@ -84,3 +84,23 @@ gives the same CIs only with the same NumPy version (see `environment.txt`).
 
 `rq1_status.py` takes each metric from the first OK step of its ladder (as shipped, then R1, then
 R1,R2). It refuses a repaired run that is not later than the step before it, or one used after an OK step. A metric with no as-shipped run is IN PROGRESS.
+
+## RQ3 measure (task 8c; reused by 9c)
+
+| Script | Task | Writes to | What it does |
+|---|---|---|---|
+| `rq3_measure.py` | 8c | `repro/rq3_measure/<UTC>/` | Size, copied functions, cross-file duplicated lines and re-run faults (data paths, undefined names, unseeded random calls) of the analysis code at a git ref, read with `git show` so the working tree doesn't matter. Standard library only |
+
+```
+.venv/bin/python repro/rq3_measure.py                       # baseline: the four frequentist notebooks at PRE_EVENT_A
+.venv/bin/python repro/rq3_measure.py --ref <after> <module.py> frequentist/*.ipynb   # 9c: the same measure after the change
+```
+
+A logical line (a statement) counts as duplicated when it lies in a run of 5 consecutive logical lines
+(comments and spacing ignored, names kept) that also occurs in another file. Copies with renamed variables
+aren't found, and runs never cross a notebook cell boundary, so cells shorter than 5 logical lines never
+count. The share is therefore a lower bound. The fault checks have limits too: data paths are found only
+as literal `read_csv` arguments, and a seed counts only with a literal argument in the same file (see the
+script's docstring). Function copies are compared by
+AST, ignoring the docstring; a different AST doesn't mean different behaviour. The baseline is
+`repro/rq3_measure/20261029T132012Z`; [`RQ3_DESIGN_PROBLEM.md`](../RQ3_DESIGN_PROBLEM.md) (8e) reads it.

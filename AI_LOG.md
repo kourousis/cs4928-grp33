@@ -53,6 +53,14 @@ it but the conclusions are the team's.
 | Claude reran the full test suite and notebooks and summarised the results. | James and Enda reviewed the output and agreed the RQ2/RQ3/threat position above. | [M2_REPRO.md](M2_REPRO.md) and the saved rerun outputs. |
 | Claude suggested freezing the repository state with git tags so the reported results point at a fixed commit. | Accepted by James and Enda. Three tags created: `M1_PLAN` (`618005b`), `M2_REPRO` and `PRE_EVENT_A` (both `38920e8`). | `git tag` / `git show <tag>`; anyone can check out a tag to reproduce the recorded state. |
 
+## RQ3 baseline and design problem - 29 October 2026
+
+| Contribution / influence | Decision / review | Verification |
+|---|---|---|
+| Claude wrote `repro/rq3_measure.py` (8c) and proposed its duplication measure: runs of 5 logical lines, function copies compared by AST. | Accepted by Enda; logged in the M1_PLAN.md deviation log (29 Oct) before any RQ3 change. | 23 tests on made-up notebooks (`repro/test_rq3_measure.py`). Input hashes match `git show PRE_EVENT_A:<file>` hashed separately. |
+| A first, never-committed draft of the script labelled 3 of the 5 copied functions "drifted" because their ASTs differ. Reading the copies showed that only `cliffs_delta` behaves differently (NaN handling); the other two are equivalent rewrites. | The output now says "AST versions", and the behaviour call is made by hand in `RQ3_DESIGN_PROBLEM.md` (8e). | Call sites checked: every current caller passes NaN-free data, so no reported number is affected. |
+| Claude drafted `RQ3_DESIGN_PROBLEM.md` (8e), including the case for changing nothing. A second Claude agent then reviewed 8c/8e against the notebooks and data. It found a wrong count (82 → 80 duplicated lines inside functions), wrong NaN reasoning for the `cliffs_delta` callers, causal wording about R1 that the evidence doesn't support, and blind spots in the seed and data-path checks. | All fixed before commit; Enda reviewed the result. | Each claim points to a cell, a run log or a measure output; tests added for the seed and git-ref cases. |
+
 ## Adding future entries
 
 For subsequent work, record the date, AI tool, material suggestion, team
