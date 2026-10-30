@@ -1,0 +1,18 @@
+{
+  "data/task2_cs_delta.json": {
+    "sha256_lf": "019bb13aaa8614981e3f02019b82f6583941361cb5d688a40b20d1ea86d89ef1",
+    "sha256_raw": "019bb13aaa8614981e3f02019b82f6583941361cb5d688a40b20d1ea86d89ef1"
+  },
+  "data/task2_pmd.json": {
+    "sha256_lf": "9c3e07d4ba80bc593e532835ad9147772276145a479f47a84ec378d82ede0531",
+    "sha256_raw": "9c3e07d4ba80bc593e532835ad9147772276145a479f47a84ec378d82ede0531"
+  },
+  "repro/inspect_rq2_sample.py": {
+    "sha256_lf": "0f11e6f14d9905710a1593cf7eba81ba9b9772fbd298c6d3dafc52446c3dccc8",
+    "sha256_raw": "0f11e6f14d9905710a1593cf7eba81ba9b9772fbd298c6d3dafc52446c3dccc8"
+  },
+  "repro/run_event_a.py": {
+    "sha256_lf": "b496269174fc0182ee52edbdb577c9d4c5b2a65ac49e62a710b343040a729f65",
+    "sha256_raw": "b496269174fc0182ee52edbdb577c9d4c5b2a65ac49e62a710b343040a729f65"
+  }
+}
