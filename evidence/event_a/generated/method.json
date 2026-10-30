@@ -1,0 +1,21 @@
+{
+  "call_pattern": "one inspect() call per ID; a ValueError is recorded in errors.csv",
+  "claim_boundary": "tool-report inspection, not inspection of participant Java source",
+  "method": "inspect() from repro/inspect_rq2_sample.py, unchanged (6e Method steps 1-4)",
+  "plan": "EVENT_A_PLAN.md at tag EVENT_A_PLAN",
+  "sample_ids": [
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "unit": "JSON entry; treatment and participant identity unknown"
+}

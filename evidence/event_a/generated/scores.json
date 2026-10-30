@@ -1,0 +1,78 @@
+{
+  "P1": {
+    "fixed_by_id": {
+      "13": 2,
+      "14": 1,
+      "16": 1,
+      "17": 7,
+      "18": 1,
+      "22": 1
+    },
+    "holds": false,
+    "rule": "fixed <= 1",
+    "value": 13
+  },
+  "P2": {
+    "holds": true,
+    "rule": "introduced+degraded >= half of top-level findings (fails if none)",
+    "value": "19 of 38"
+  },
+  "P3": {
+    "holds": true,
+    "ids": [
+      15,
+      16,
+      20,
+      21
+    ],
+    "rule": ">= 4 entries with Complex Method on RecipeSearchController.java introduced/degraded",
+    "value": 4
+  },
+  "P4": {
+    "holds": true,
+    "ids": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "rule": ">= 10 entries with all three rules among their top rules",
+    "value": 12
+  },
+  "challenge_rule": {
+    "challenged": true,
+    "rule": "M2 description challenged if P1 fails (>= 2 fixed) or P4 fails (>= 3 entries missing a rule)"
+  },
+  "change_type_totals": {
+    "degraded": 6,
+    "fixed": 13,
+    "improved": 0,
+    "introduced": 13,
+    "unchanged": 6
+  },
+  "errored_ids": [],
+  "reconciliation_6d": {
+    "agrees": true,
+    "fields": [
+      "pmd_total",
+      "introduced",
+      "degraded",
+      "unchanged",
+      "improved",
+      "fixed",
+      "net_smell_change",
+      "smell_file_records"
+    ],
+    "mismatches": [],
+    "source": "repro/rq2_counts/20261017T144903Z/per_entry.csv"
+  },
+  "top_level_findings": 38
+}

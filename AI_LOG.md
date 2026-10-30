@@ -79,6 +79,13 @@ Codex assisted the [alternatives comparison](evidence/design/9a_alternatives.md)
 Adam selected B for central maintenance of fixes and tests, conditional on
 preserving results; verification requirements follow M1's existing RQ3 rule.
 
+## Event A run - 30 October 2026
+
+| Contribution / influence | Decision / review | Verification |
+|---|---|---|
+| Claude wrote `repro/run_event_a.py` (wrapper calling the frozen 6e `inspect()` per ID) and `repro/score_event_a.py` (P1–P4 scoring as written in `EVENT_A_PLAN.md`, plus 6d reconciliation), ran them on IDs 12–23, and drafted `evidence/event_a/README.md`. | Reviewed by Ilias before commit. Two small deviations from the plan disclosed in the README (Python version printed, not stored; one call per ID). | `inspect_rq2_sample.py --check` still passes; Event A evidence and scores reproduce with `--check`; totals agree with 6d `per_entry.csv` for all 12 IDs. |
+| Claude's post-hoc reading of the 13 `fixed` findings (relocation in ID 13, threshold swaps in IDs 18/22, concentration in ID 17). | Reported separately from the mechanical P1 result, which is unchanged. | Each reading points to the JSON finding; P1 fails under every reading. |
+
 ## Adding future entries
 
 For subsequent work, record the date, AI tool, material suggestion, team
