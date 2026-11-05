@@ -104,3 +104,28 @@ as literal `read_csv` arguments, and a seed counts only with a literal argument 
 script's docstring). Function copies are compared by
 AST, ignoring the docstring; a different AST doesn't mean different behaviour. The baseline is
 `repro/rq3_measure/20261029T132012Z`; [`RQ3_DESIGN_PROBLEM.md`](../RQ3_DESIGN_PROBLEM.md) (8e) reads it.
+
+## RQ3 shared module and before/after check (tasks 9b, 9c)
+
+From 9b on, the four notebooks in `frequentist/` import their statistics helpers from
+[`frequentist/stats.py`](../frequentist/stats.py) instead of each keeping a copy, load the data through
+`load_data()` (fixes R1), import `shapiro` where it is used (fixes R2) and set `np.random.seed(4928)`
+after their imports. The as-shipped notebooks stay in git at `PRE_EVENT_A`, and `run_all.py` and
+`rq1_status.py` read them from there, so the RQ1 runs above are unaffected.
+
+| Script | Task | Writes to | What it does |
+|---|---|---|---|
+| `test_stats.py` | 9b | - | Short unit tests for each function in `stats.py` (hand-worked values, NaN handling, same seed gives the same CI, data loading) |
+| `rq3_verify.py` | 9c | `repro/rq3_verify/<UTC>/` | Runs the four notebooks before (at `PRE_EVENT_A`, with the declared repairs and the same seed added in memory) and after (as they are now), and compares every printed line, including every RQ1a primary value and CI |
+
+```
+.venv/bin/python -m unittest repro/test_stats.py -v
+.venv/bin/python repro/rq3_verify.py                     # ~20 min: 4 notebooks, twice
+.venv/bin/python repro/rq3_measure.py --worktree frequentist/stats.py frequentist/codehealth.ipynb \
+    frequentist/completion_time.ipynb frequentist/coverage.ipynb frequentist/perceived_productivity.ipynb
+```
+
+The "after" `rq3_measure.py` output is kept inside the `rq3_verify` run folder (`measure_after/`), so
+`repro/rq3_measure/` keeps only the baseline that `check_fresh_clone.py` re-runs. In that output, `stats.py`
+shows `__file__` as an undefined name and its random calls as unseeded: both are limits of the measure
+(`__file__` is set for every module; the seed is set by the notebook that calls it).
