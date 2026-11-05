@@ -31,6 +31,7 @@ that step FAILED. Writes to repro/rq1_status/<UTC timestamp>/:
     inputs_sha256.txt   hashes of every file read, and this script
 """
 import argparse
+import hashlib
 import json
 import platform
 import re
@@ -39,11 +40,10 @@ from datetime import datetime, timezone
 from decimal import Decimal
 from pathlib import Path
 
-import nbformat
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from recompute_rq1 import sha256_normalised  # noqa: E402
-from run_all import NOTEBOOKS, dump_outputs, DECLARED_REPAIRS  # noqa: E402
+from run_all import NOTEBOOKS, dump_outputs, DECLARED_REPAIRS, AS_SHIPPED_REF, as_shipped, as_shipped_bytes  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 DEFAULT_RECOMPUTE = "repro/recompute/20261017T144852Z"
@@ -195,8 +195,8 @@ def pick_run(metric, runs):
 
 
 def stored_outputs(metric):
-    """The authors' own stored output for this notebook, in the runner's text format."""
-    return dump_outputs(nbformat.read(REPO / "frequentist" / f"{metric}.ipynb", as_version=4))
+    """The authors' own stored output for this notebook (as shipped), in the runner's text format."""
+    return dump_outputs(as_shipped(metric))
 
 
 def ci_rows(metric, printed, stored, recomputed):
@@ -335,11 +335,14 @@ def main():
     read = [r / "run_log.txt" for r in runs] + [r / s["file"] for m in results.values()
                                                  for r in runs for s in m["steps"] if s["run"] == r.name]
     with open(out / "inputs_sha256.txt", "w", encoding="utf-8") as f:
-        for path in read + [recompute_dir / "results.json"] + \
-                [REPO / "frequentist" / f"{n}.ipynb" for n in NOTEBOOKS] + \
-                [REPO / "repro" / "rq1_status.py", REPO / "repro" / "run_all.py"]:
+        for path in read + [recompute_dir / "results.json"]:
             rel = path.relative_to(REPO) if REPO in path.parents else path
             f.write(f"{sha256_normalised(path)}  {rel}\n")
+        for n in NOTEBOOKS:
+            digest = hashlib.sha256(as_shipped_bytes(n).replace(b"\r\n", b"\n")).hexdigest()
+            f.write(f"{digest}  {AS_SHIPPED_REF}:frequentist/{n}.ipynb\n")
+        for path in [REPO / "repro" / "rq1_status.py", REPO / "repro" / "run_all.py"]:
+            f.write(f"{sha256_normalised(path)}  {path.relative_to(REPO)}\n")
     print(text)
     print(f"done -> {out}")
 

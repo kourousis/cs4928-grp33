@@ -5,6 +5,11 @@ Re-executes the authors' four Phase 2 frequentist notebooks EXACTLY AS SHIPPED
 and saves every output into a new timestamped folder. The original notebooks
 are never modified.
 
+Since the RQ3 restructuring (task 9b), frequentist/ holds the restructured
+notebooks, so the as-shipped notebooks are read from git at AS_SHIPPED_REF
+(PRE_EVENT_A, the last state before any RQ3 change; identical to the copies
+used for every M2 run). They still run from frequentist/, next to data/.
+
     python repro/run_all.py            # run all four
     python repro/run_all.py codehealth # run one (pilot)
     python repro/run_all.py --repairs R1 perceived_productivity
@@ -36,11 +41,14 @@ from datetime import datetime, timezone
 from importlib.metadata import version, PackageNotFoundError
 from pathlib import Path
 
+import subprocess
+
 import nbformat
 from nbclient import NotebookClient
 
 REPO = Path(__file__).resolve().parent.parent
 NB_DIR = REPO / "frequentist"
+AS_SHIPPED_REF = "PRE_EVENT_A"
 NOTEBOOKS = ["codehealth", "completion_time", "coverage", "perceived_productivity"]
 DATA = ["data/task1_preprocessed.csv", "data/task2_preprocessed.csv"]
 # Repairs declared in M1_PLAN.md before any reported run. Each is an exact
@@ -68,6 +76,16 @@ KERNEL_PKGS = ["numpy", "pandas", "scipy", "matplotlib", "seaborn"]
 
 def sha256_normalised(path: Path) -> str:
     return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+
+
+def as_shipped_bytes(name: str) -> bytes:
+    """The authors' notebook as shipped, read from git at AS_SHIPPED_REF."""
+    return subprocess.run(["git", "show", f"{AS_SHIPPED_REF}:frequentist/{name}.ipynb"], cwd=REPO,
+                          capture_output=True, check=True).stdout
+
+
+def as_shipped(name: str):
+    return nbformat.reads(as_shipped_bytes(name).decode("utf-8"), as_version=4)
 
 
 def dump_outputs(nb) -> str:
@@ -116,7 +134,10 @@ def main(selected, repairs=()):
 
     # input identity record
     with open(out / "inputs_sha256.txt", "w", encoding="utf-8") as f:
-        for rel in [f"frequentist/{n}.ipynb" for n in selected] + DATA + ["repro/requirements.txt", "repro/run_all.py"]:
+        for n in selected:
+            digest = hashlib.sha256(as_shipped_bytes(n).replace(b"\r\n", b"\n")).hexdigest()
+            f.write(f"{digest}  {AS_SHIPPED_REF}:frequentist/{n}.ipynb\n")
+        for rel in DATA + ["repro/requirements.txt", "repro/run_all.py"]:
             f.write(f"{sha256_normalised(REPO / rel)}  {rel}\n")
 
     fig_dirs = [NB_DIR / "figures"]
@@ -126,8 +147,7 @@ def main(selected, repairs=()):
         sys.exit(f"stale figures folder(s) {stale}: move them away first so old figures can't enter this run")
     say(f"run {stamp}  repo={REPO}  mode={('DECLARED REPAIRS ' + ','.join(repairs)) if repairs else 'AS SHIPPED'}")
     for name in selected:
-        src = NB_DIR / f"{name}.ipynb"
-        nb = nbformat.read(src, as_version=4)
+        nb = as_shipped(name)
         # Wipe the authors' stored outputs so nothing in this run's files can be
         # a leftover from their machine (a failed cell must not leave old results below it).
         for cell in nb.cells:

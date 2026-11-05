@@ -1,0 +1,183 @@
+{
+  "stamp": "20261105T185759Z",
+  "ref": "PRE_EVENT_A",
+  "seed": 4928,
+  "all_identical": true,
+  "notebooks": {
+    "codehealth": {
+      "identical": true,
+      "status_before": "OK",
+      "status_after": "OK",
+      "seconds_before": 84,
+      "seconds_after": 81,
+      "printed_lines": [
+        63,
+        63
+      ],
+      "before_edits": [
+        "seed: 'np.random.seed(4928)' appended to the first code cell"
+      ],
+      "primary_before": {
+        "p": "2.3673e-01",
+        "effect": "0.2761",
+        "treatment": "8.49",
+        "control": "8.44",
+        "treatment_ci": [
+          "8.43",
+          "8.54"
+        ],
+        "control_ci": [
+          "8.39",
+          "8.49"
+        ]
+      },
+      "primary_after": {
+        "p": "2.3673e-01",
+        "effect": "0.2761",
+        "treatment": "8.49",
+        "control": "8.44",
+        "treatment_ci": [
+          "8.43",
+          "8.54"
+        ],
+        "control_ci": [
+          "8.39",
+          "8.49"
+        ]
+      },
+      "diff": []
+    },
+    "completion_time": {
+      "identical": true,
+      "status_before": "OK",
+      "status_after": "OK",
+      "seconds_before": 175,
+      "seconds_after": 150,
+      "printed_lines": [
+        48,
+        48
+      ],
+      "before_edits": [
+        "seed: 'np.random.seed(4928)' appended to the first code cell"
+      ],
+      "primary_before": {
+        "p": "5.6436e-01",
+        "effect": "-0.0793",
+        "treatment": "136.1",
+        "control": "172.6",
+        "treatment_ci": [
+          "105.5",
+          "180.0"
+        ],
+        "control_ci": [
+          "118.1",
+          "210.0"
+        ]
+      },
+      "primary_after": {
+        "p": "5.6436e-01",
+        "effect": "-0.0793",
+        "treatment": "136.1",
+        "control": "172.6",
+        "treatment_ci": [
+          "105.5",
+          "180.0"
+        ],
+        "control_ci": [
+          "118.1",
+          "210.0"
+        ]
+      },
+      "diff": []
+    },
+    "coverage": {
+      "identical": true,
+      "status_before": "OK",
+      "status_after": "OK",
+      "seconds_before": 150,
+      "seconds_after": 156,
+      "printed_lines": [
+        26,
+        26
+      ],
+      "before_edits": [
+        "seed: 'np.random.seed(4928)' appended to the first code cell"
+      ],
+      "primary_before": {
+        "p": "4.9001e-01",
+        "effect": "0.0929",
+        "treatment": "0.70",
+        "control": "0.70",
+        "treatment_ci": [
+          "0.69",
+          "0.71"
+        ],
+        "control_ci": [
+          "0.69",
+          "0.71"
+        ]
+      },
+      "primary_after": {
+        "p": "4.9001e-01",
+        "effect": "0.0929",
+        "treatment": "0.70",
+        "control": "0.70",
+        "treatment_ci": [
+          "0.69",
+          "0.71"
+        ],
+        "control_ci": [
+          "0.69",
+          "0.71"
+        ]
+      },
+      "diff": []
+    },
+    "perceived_productivity": {
+      "identical": true,
+      "status_before": "OK",
+      "status_after": "OK",
+      "seconds_before": 59,
+      "seconds_after": 58,
+      "printed_lines": [
+        30,
+        30
+      ],
+      "before_edits": [
+        "repair R1: 'pd.read_csv(\"data/task1_preprocessed.csv\")' -> 'pd.read_csv(\"../data/task1_preprocessed.csv\")'",
+        "repair R1: 'pd.read_csv(\"data/task2_preprocessed.csv\")' -> 'pd.read_csv(\"../data/task2_preprocessed.csv\")'",
+        "repair R2: 'from scipy.stats import ttest_ind' -> 'from scipy.stats import ttest_ind\\nfrom scipy.stats import shapiro'",
+        "seed: 'np.random.seed(4928)' appended to the first code cell"
+      ],
+      "primary_before": {
+        "p": "3.7134e-01",
+        "effect": "-0.2128",
+        "treatment": "3.95",
+        "control": "4.06",
+        "treatment_ci": [
+          "3.77",
+          "4.12"
+        ],
+        "control_ci": [
+          "3.88",
+          "4.24"
+        ]
+      },
+      "primary_after": {
+        "p": "3.7134e-01",
+        "effect": "-0.2128",
+        "treatment": "3.95",
+        "control": "4.06",
+        "treatment_ci": [
+          "3.77",
+          "4.12"
+        ],
+        "control_ci": [
+          "3.88",
+          "4.24"
+        ]
+      },
+      "diff": []
+    }
+  }
+}

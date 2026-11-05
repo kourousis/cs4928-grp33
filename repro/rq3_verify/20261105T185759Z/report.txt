@@ -1,0 +1,40 @@
+RQ3 before/after check 20261105T185759Z
+before = frequentist/*.ipynb at PRE_EVENT_A (+ declared repairs, + seed 4928); after = frequentist/*.ipynb on disk (seed 4928 in the notebook)
+
+[codehealth] IDENTICAL  (before OK, 63 lines, 84s; after OK, 63 lines, 81s)
+    before-run edit: seed: 'np.random.seed(4928)' appended to the first code cell
+    p             before 2.3673e-01             after 2.3673e-01
+    effect        before 0.2761                 after 0.2761
+    treatment     before 8.49                   after 8.49
+    control       before 8.44                   after 8.44
+    treatment_ci  before ['8.43', '8.54']       after ['8.43', '8.54']
+    control_ci    before ['8.39', '8.49']       after ['8.39', '8.49']
+[completion_time] IDENTICAL  (before OK, 48 lines, 175s; after OK, 48 lines, 150s)
+    before-run edit: seed: 'np.random.seed(4928)' appended to the first code cell
+    p             before 5.6436e-01             after 5.6436e-01
+    effect        before -0.0793                after -0.0793
+    treatment     before 136.1                  after 136.1
+    control       before 172.6                  after 172.6
+    treatment_ci  before ['105.5', '180.0']     after ['105.5', '180.0']
+    control_ci    before ['118.1', '210.0']     after ['118.1', '210.0']
+[coverage] IDENTICAL  (before OK, 26 lines, 150s; after OK, 26 lines, 156s)
+    before-run edit: seed: 'np.random.seed(4928)' appended to the first code cell
+    p             before 4.9001e-01             after 4.9001e-01
+    effect        before 0.0929                 after 0.0929
+    treatment     before 0.70                   after 0.70
+    control       before 0.70                   after 0.70
+    treatment_ci  before ['0.69', '0.71']       after ['0.69', '0.71']
+    control_ci    before ['0.69', '0.71']       after ['0.69', '0.71']
+[perceived_productivity] IDENTICAL  (before OK, 30 lines, 59s; after OK, 30 lines, 58s)
+    before-run edit: repair R1: 'pd.read_csv("data/task1_preprocessed.csv")' -> 'pd.read_csv("../data/task1_preprocessed.csv")'
+    before-run edit: repair R1: 'pd.read_csv("data/task2_preprocessed.csv")' -> 'pd.read_csv("../data/task2_preprocessed.csv")'
+    before-run edit: repair R2: 'from scipy.stats import ttest_ind' -> 'from scipy.stats import ttest_ind\nfrom scipy.stats import shapiro'
+    before-run edit: seed: 'np.random.seed(4928)' appended to the first code cell
+    p             before 3.7134e-01             after 3.7134e-01
+    effect        before -0.2128                after -0.2128
+    treatment     before 3.95                   after 3.95
+    control       before 4.06                   after 4.06
+    treatment_ci  before ['3.77', '4.12']       after ['3.77', '4.12']
+    control_ci    before ['3.88', '4.24']       after ['3.88', '4.24']
+
+VERDICT: every printed line, including every RQ1a primary value and CI, is identical before and after
