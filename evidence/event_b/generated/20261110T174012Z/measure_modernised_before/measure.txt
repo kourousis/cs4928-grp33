@@ -1,0 +1,40 @@
+RQ3 measure at PRE_EVENT_B (PRE_EVENT_B), window = 5 lines
+run 20261110T174012Z
+
+file                                       cells lines  SLOC logic defs   dup   dup%
+frequentist/stats.py                           -   154   111    85   14     0   0.0%
+frequentist/codehealth.ipynb               19/30   272   182   142    0    13   9.2%
+frequentist/completion_time.ipynb          15/24   212   133   121    0    18  14.9%
+frequentist/coverage.ipynb                 12/18   165   112    92    0    23  25.0%
+frequentist/perceived_productivity.ipynb   17/25   251   167   134    1     8   6.0%
+TOTAL                                             1054   705   574   15    62  10.8%
+  cells = code cells / all cells; logic = logical lines (statements); dup = logical lines in a cross-file clone run; dup% = dup / logic
+
+Functions defined in more than one file:
+Functions in one file only: _bootstrap_ci, _bootstrap_ci_difference, _drop_na, _percentile_ci, bootstrap_ci_mean, bootstrap_ci_mean_difference, bootstrap_ci_median, bootstrap_ci_median_difference, cliffs_delta, cliffs_magnitude, cohens_d, cohens_magnitude, cronbach_alpha, load_data, split_groups
+Copied functions: 0 names, 0 SLOC in all copies
+
+Re-run faults:
+  stats.py
+    data paths:       -
+    undefined names:  ['__file__']
+    random calls:     np.random.choice x3; seeds: none  -> UNSEEDED
+  codehealth.ipynb
+    data paths:       -
+    undefined names:  -
+    random calls:     none; seeds: ['np.random.seed']
+  completion_time.ipynb
+    data paths:       -
+    undefined names:  -
+    random calls:     none; seeds: ['np.random.seed']
+  coverage.ipynb
+    data paths:       -
+    undefined names:  -
+    random calls:     none; seeds: ['np.random.seed']
+  perceived_productivity.ipynb
+    data paths:       -
+    undefined names:  -
+    random calls:     none; seeds: ['np.random.seed']
+  data path prefixes in use: []
+
+Duplicated logical lines inside function bodies: 0, outside: 62

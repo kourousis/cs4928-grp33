@@ -1,0 +1,39 @@
+STATUS: OK
+--- cell 0 (execution_count=1) ---
+--- cell 1 (execution_count=2) ---
+--- cell 2 (execution_count=3) ---
+--- cell 3 (execution_count=4) ---
+--- cell 5 (execution_count=5) ---
+Task 1 test runs Descriptive Statistics:
+          N      mean        std  min  median    max
+ai                                                  
+False  32.0   5.90625   5.275380  1.0     4.0   18.0
+True   37.0  15.27027  46.935327  1.0     5.0  287.0
+
+Task 2 test runs Descriptive Statistics:
+              N       mean        std  min  median   max
+treatment                                               
+ai         36.0  10.194444  11.732298  1.0     6.0  46.0
+human      34.0   7.558824   7.295458  1.0     5.5  41.0
+--- cell 7 (execution_count=6) ---
+[figure]
+--- cell 9 (execution_count=7) ---
+[figure]
+--- cell 11 (execution_count=8) ---
+Shapiro-Wilk Test for Normality:
+Treatment Group: W=0.6926, p-value=2.1715e-07
+Control Group: W=0.7044, p-value=5.7452e-07
+--- cell 13 (execution_count=9) ---
+Wilcoxon Rank-Sum Test: Statistic=0.3349, p-value=7.3770e-01
+--- cell 15 (execution_count=10) ---
+Cliff's Delta for Test Runs: 0.0466
+Effect Size Interpretation: Negligible
+--- cell 16 (execution_count=11) ---
+[figure]
+Bootstrap Confidence Intervals (95% CI) for Median Test Runs:
+Treatment (AI-assisted): 6.00  (95% CI: 4.00 - 8.00)
+Control (Manual):       5.50  (95% CI: 4.00 - 8.00)
+--- cell 17 (execution_count=12) ---
+Bootstrap CI for the median Test Runs difference (Treatment - Control):
+Median difference: 0.500
+95% CI: [-3.000, 3.000]

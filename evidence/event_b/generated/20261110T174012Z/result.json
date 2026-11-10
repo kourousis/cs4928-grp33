@@ -1,0 +1,154 @@
+{
+  "stamp": "20261110T174012Z",
+  "p_value": 0.7377,
+  "conclusion": "We do not reject the null hypothesis of no difference.",
+  "metrics": {
+    "pre_m4": {
+      "M1_cells_edited": 9,
+      "M1_code_cells_edited": 7,
+      "M1_markdown_cells_edited": 2,
+      "M1_other_files_changed": [],
+      "M2_files_added": [
+        "frequentist/test_runs.ipynb"
+      ],
+      "M2_new_file_sloc": 151,
+      "M2_new_file_logical_lines": 130,
+      "M2_new_file_functions": [
+        [
+          "cliffs_delta",
+          8
+        ],
+        [
+          "bootstrap_ci_median",
+          6
+        ],
+        [
+          "bootstrap_ci_median_difference",
+          17
+        ]
+      ],
+      "M2_new_file_function_sloc": 31,
+      "M3_test_files_changed": [],
+      "M4_copied_functions": [
+        5,
+        5
+      ],
+      "M4_copied_function_sloc": [
+        105,
+        136
+      ],
+      "M4_dup_logical": [
+        163,
+        241
+      ],
+      "M4_logical": [
+        655,
+        785
+      ],
+      "M4_dup_share": [
+        0.2489,
+        0.307
+      ],
+      "M4_dup_inside_functions": [
+        80,
+        119
+      ],
+      "M4_dup_outside_functions": [
+        83,
+        122
+      ],
+      "M4_new_file_faults": {
+        "data_paths": [
+          "../data/task1_preprocessed.csv",
+          "../data/task2_preprocessed.csv"
+        ],
+        "undefined_names": [],
+        "random_calls": {
+          "np.random.choice": 3
+        },
+        "seed_calls": [],
+        "unseeded_random": true
+      },
+      "M4_copied_not_identical_after": [
+        "bootstrap_ci_median_difference",
+        "cliffs_delta",
+        "cohens_d"
+      ],
+      "run_status": "OK",
+      "run_seconds": 95,
+      "run_note": "seed line added in memory to the first code cell"
+    },
+    "modernised": {
+      "M1_cells_edited": 9,
+      "M1_code_cells_edited": 7,
+      "M1_markdown_cells_edited": 2,
+      "M1_other_files_changed": [],
+      "M2_files_added": [
+        "frequentist/test_runs.ipynb"
+      ],
+      "M2_new_file_sloc": 112,
+      "M2_new_file_logical_lines": 92,
+      "M2_new_file_functions": [],
+      "M2_new_file_function_sloc": 0,
+      "M3_test_files_changed": [],
+      "M4_copied_functions": [
+        0,
+        0
+      ],
+      "M4_copied_function_sloc": [
+        0,
+        0
+      ],
+      "M4_dup_logical": [
+        62,
+        85
+      ],
+      "M4_logical": [
+        574,
+        666
+      ],
+      "M4_dup_share": [
+        0.108,
+        0.1276
+      ],
+      "M4_dup_inside_functions": [
+        0,
+        0
+      ],
+      "M4_dup_outside_functions": [
+        62,
+        85
+      ],
+      "M4_new_file_faults": {
+        "data_paths": [],
+        "undefined_names": [],
+        "random_calls": {},
+        "seed_calls": [
+          "np.random.seed"
+        ],
+        "unseeded_random": false
+      },
+      "M4_copied_not_identical_after": [],
+      "run_status": "OK",
+      "run_seconds": 93,
+      "run_note": "run unchanged"
+    }
+  },
+  "p4_outside_new": {
+    "pre_m4": 39,
+    "modernised": 23,
+    "ratio": 0.59
+  },
+  "p5": {
+    "existing_unchanged": true,
+    "test_runs_identical": true
+  },
+  "scores": {
+    "P1": true,
+    "P2": true,
+    "P3": false,
+    "P4": false,
+    "P5": true
+  },
+  "verdict": "SUPPORTED"
+}

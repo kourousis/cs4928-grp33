@@ -129,3 +129,16 @@ The "after" `rq3_measure.py` output is kept inside the `rq3_verify` run folder (
 `repro/rq3_measure/` keeps only the baseline that `check_fresh_clone.py` re-runs. In that output, `stats.py`
 shows `__file__` as an undefined name and its random calls as unseeded: both are limits of the measure
 (`__file__` is set for every module; the seed is set by the notebook that calls it).
+
+## Change Event B (Week 10)
+
+`event_b.py` adds the same follow-up feature (a `test_runs` notebook, built from the `coverage.ipynb`
+template) to the old notebooks at `PRE_EVENT_A` and to the shared-module version at `PRE_EVENT_B`. It then
+runs both, measures them with `rq3_measure.py` and scores the predictions in `EVENT_B_PLAN.md`.
+
+```
+.venv\Scripts\python repro\event_b.py build   # writes the two notebooks (already done; only to rebuild)
+.venv\Scripts\python repro\event_b.py run     # run, measure and score (about 3 min)
+```
+
+Output goes to `evidence/event_b/generated/<UTC timestamp>/`. The result is in `evidence/event_b/README.md`.

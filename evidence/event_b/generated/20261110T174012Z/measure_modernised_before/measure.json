@@ -1,0 +1,446 @@
+{
+  "meta": {
+    "task": "Event B",
+    "ref": "PRE_EVENT_B",
+    "commit": "PRE_EVENT_B",
+    "window": 5,
+    "files": [
+      "frequentist/stats.py",
+      "frequentist/codehealth.ipynb",
+      "frequentist/completion_time.ipynb",
+      "frequentist/coverage.ipynb",
+      "frequentist/perceived_productivity.ipynb"
+    ],
+    "run_utc": "20261110T174012Z"
+  },
+  "totals": {
+    "files": 5,
+    "code_lines": 1054,
+    "sloc": 705,
+    "logical_lines": 574,
+    "duplicated_logical_lines": 62,
+    "duplicated_share": 0.108,
+    "functions_defined": 15,
+    "distinct_function_names": 15,
+    "functions_copied_across_files": 0,
+    "copied_function_sloc": 0,
+    "copied_functions_not_identical": [],
+    "files_with_undefined_names": [
+      "frequentist/stats.py"
+    ],
+    "files_with_unseeded_random": [
+      "frequentist/stats.py"
+    ],
+    "distinct_data_path_prefixes": [],
+    "duplicated_inside_functions": 0,
+    "duplicated_outside_functions": 62
+  },
+  "files": {
+    "frequentist/stats.py": {
+      "cells": null,
+      "code_cells": null,
+      "code_lines": 154,
+      "sloc": 111,
+      "functions": [
+        {
+          "name": "load_data",
+          "cell": null,
+          "sloc": 11
+        },
+        {
+          "name": "split_groups",
+          "cell": null,
+          "sloc": 6
+        },
+        {
+          "name": "_drop_na",
+          "cell": null,
+          "sloc": 7
+        },
+        {
+          "name": "cohens_d",
+          "cell": null,
+          "sloc": 9
+        },
+        {
+          "name": "cohens_magnitude",
+          "cell": null,
+          "sloc": 6
+        },
+        {
+          "name": "cliffs_delta",
+          "cell": null,
+          "sloc": 19
+        },
+        {
+          "name": "cliffs_magnitude",
+          "cell": null,
+          "sloc": 6
+        },
+        {
+          "name": "_percentile_ci",
+          "cell": null,
+          "sloc": 2
+        },
+        {
+          "name": "_bootstrap_ci",
+          "cell": null,
+          "sloc": 4
+        },
+        {
+          "name": "_bootstrap_ci_difference",
+          "cell": null,
+          "sloc": 12
+        },
+        {
+          "name": "bootstrap_ci_mean",
+          "cell": null,
+          "sloc": 3
+        },
+        {
+          "name": "bootstrap_ci_median",
+          "cell": null,
+          "sloc": 3
+        },
+        {
+          "name": "bootstrap_ci_mean_difference",
+          "cell": null,
+          "sloc": 3
+        },
+        {
+          "name": "bootstrap_ci_median_difference",
+          "cell": null,
+          "sloc": 3
+        }
+      ],
+      "faults": {
+        "data_paths": [],
+        "undefined_names": [
+          "__file__"
+        ],
+        "random_calls": {
+          "np.random.choice": 3
+        },
+        "seed_calls": [],
+        "unseeded_random": true
+      },
+      "logical_lines": 85,
+      "duplicated_logical_lines": 0,
+      "duplicated_share": 0.0,
+      "duplicated_inside_functions": 0
+    },
+    "frequentist/codehealth.ipynb": {
+      "cells": 30,
+      "code_cells": 19,
+      "code_lines": 272,
+      "sloc": 182,
+      "functions": [],
+      "faults": {
+        "data_paths": [],
+        "undefined_names": [],
+        "random_calls": {},
+        "seed_calls": [
+          "np.random.seed"
+        ],
+        "unseeded_random": false
+      },
+      "logical_lines": 142,
+      "duplicated_logical_lines": 13,
+      "duplicated_share": 0.0915,
+      "duplicated_inside_functions": 0
+    },
+    "frequentist/completion_time.ipynb": {
+      "cells": 24,
+      "code_cells": 15,
+      "code_lines": 212,
+      "sloc": 133,
+      "functions": [],
+      "faults": {
+        "data_paths": [],
+        "undefined_names": [],
+        "random_calls": {},
+        "seed_calls": [
+          "np.random.seed"
+        ],
+        "unseeded_random": false
+      },
+      "logical_lines": 121,
+      "duplicated_logical_lines": 18,
+      "duplicated_share": 0.1488,
+      "duplicated_inside_functions": 0
+    },
+    "frequentist/coverage.ipynb": {
+      "cells": 18,
+      "code_cells": 12,
+      "code_lines": 165,
+      "sloc": 112,
+      "functions": [],
+      "faults": {
+        "data_paths": [],
+        "undefined_names": [],
+        "random_calls": {},
+        "seed_calls": [
+          "np.random.seed"
+        ],
+        "unseeded_random": false
+      },
+      "logical_lines": 92,
+      "duplicated_logical_lines": 23,
+      "duplicated_share": 0.25,
+      "duplicated_inside_functions": 0
+    },
+    "frequentist/perceived_productivity.ipynb": {
+      "cells": 25,
+      "code_cells": 17,
+      "code_lines": 251,
+      "sloc": 167,
+      "functions": [
+        {
+          "name": "cronbach_alpha",
+          "cell": 8,
+          "sloc": 6
+        }
+      ],
+      "faults": {
+        "data_paths": [],
+        "undefined_names": [],
+        "random_calls": {},
+        "seed_calls": [
+          "np.random.seed"
+        ],
+        "unseeded_random": false
+      },
+      "logical_lines": 134,
+      "duplicated_logical_lines": 8,
+      "duplicated_share": 0.0597,
+      "duplicated_inside_functions": 0
+    }
+  },
+  "function_groups": [
+    {
+      "name": "_bootstrap_ci",
+      "files": [
+        "frequentist/stats.py"
+      ],
+      "copies": 1,
+      "in_files": 1,
+      "sloc_each": [
+        4
+      ],
+      "variants": 1,
+      "variant_each": [
+        0
+      ]
+    },
+    {
+      "name": "_bootstrap_ci_difference",
+      "files": [
+        "frequentist/stats.py"
+      ],
+      "copies": 1,
+      "in_files": 1,
+      "sloc_each": [
+        12
+      ],
+      "variants": 1,
+      "variant_each": [
+        0
+      ]
+    },
+    {
+      "name": "_drop_na",
+      "files": [
+        "frequentist/stats.py"
+      ],
+      "copies": 1,
+      "in_files": 1,
+      "sloc_each": [
+        7
+      ],
+      "variants": 1,
+      "variant_each": [
+        0
+      ]
+    },
+    {
+      "name": "_percentile_ci",
+      "files": [
+        "frequentist/stats.py"
+      ],
+      "copies": 1,
+      "in_files": 1,
+      "sloc_each": [
+        2
+      ],
+      "variants": 1,
+      "variant_each": [
+        0
+      ]
+    },
+    {
+      "name": "bootstrap_ci_mean",
+      "files": [
+        "frequentist/stats.py"
+      ],
+      "copies": 1,
+      "in_files": 1,
+      "sloc_each": [
+        3
+      ],
+      "variants": 1,
+      "variant_each": [
+        0
+      ]
+    },
+    {
+      "name": "bootstrap_ci_mean_difference",
+      "files": [
+        "frequentist/stats.py"
+      ],
+      "copies": 1,
+      "in_files": 1,
+      "sloc_each": [
+        3
+      ],
+      "variants": 1,
+      "variant_each": [
+        0
+      ]
+    },
+    {
+      "name": "bootstrap_ci_median",
+      "files": [
+        "frequentist/stats.py"
+      ],
+      "copies": 1,
+      "in_files": 1,
+      "sloc_each": [
+        3
+      ],
+      "variants": 1,
+      "variant_each": [
+        0
+      ]
+    },
+    {
+      "name": "bootstrap_ci_median_difference",
+      "files": [
+        "frequentist/stats.py"
+      ],
+      "copies": 1,
+      "in_files": 1,
+      "sloc_each": [
+        3
+      ],
+      "variants": 1,
+      "variant_each": [
+        0
+      ]
+    },
+    {
+      "name": "cliffs_delta",
+      "files": [
+        "frequentist/stats.py"
+      ],
+      "copies": 1,
+      "in_files": 1,
+      "sloc_each": [
+        19
+      ],
+      "variants": 1,
+      "variant_each": [
+        0
+      ]
+    },
+    {
+      "name": "cliffs_magnitude",
+      "files": [
+        "frequentist/stats.py"
+      ],
+      "copies": 1,
+      "in_files": 1,
+      "sloc_each": [
+        6
+      ],
+      "variants": 1,
+      "variant_each": [
+        0
+      ]
+    },
+    {
+      "name": "cohens_d",
+      "files": [
+        "frequentist/stats.py"
+      ],
+      "copies": 1,
+      "in_files": 1,
+      "sloc_each": [
+        9
+      ],
+      "variants": 1,
+      "variant_each": [
+        0
+      ]
+    },
+    {
+      "name": "cohens_magnitude",
+      "files": [
+        "frequentist/stats.py"
+      ],
+      "copies": 1,
+      "in_files": 1,
+      "sloc_each": [
+        6
+      ],
+      "variants": 1,
+      "variant_each": [
+        0
+      ]
+    },
+    {
+      "name": "cronbach_alpha",
+      "files": [
+        "frequentist/perceived_productivity.ipynb"
+      ],
+      "copies": 1,
+      "in_files": 1,
+      "sloc_each": [
+        6
+      ],
+      "variants": 1,
+      "variant_each": [
+        0
+      ]
+    },
+    {
+      "name": "load_data",
+      "files": [
+        "frequentist/stats.py"
+      ],
+      "copies": 1,
+      "in_files": 1,
+      "sloc_each": [
+        11
+      ],
+      "variants": 1,
+      "variant_each": [
+        0
+      ]
+    },
+    {
+      "name": "split_groups",
+      "files": [
+        "frequentist/stats.py"
+      ],
+      "copies": 1,
+      "in_files": 1,
+      "sloc_each": [
+        6
+      ],
+      "variants": 1,
+      "variant_each": [
+        0
+      ]
+    }
+  ]
+}
