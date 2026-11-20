@@ -1,3 +1,8 @@
+ # Cross team feedback result
+G32’s finding was a general one, that we should add more evidence and verification. We accepted it. We didn’t make a change because our design verification was already there: a before-and-after re-run with identical outputs, plus the tests seemed strong enough to us.
+ 
+Where verification really is limited is RQ2. The authors’ data doesn’t say which code was AI-assisted and which was written by hand for each participant, so we couldn’t check it directly and used the fallback analyses instead
+
 # Event B: result
 
 We ran this on 10 Nov 2026, following `EVENT_B_PLAN.md` at the tag `EVENT_B_PLAN`. The prediction was
@@ -114,3 +119,39 @@ python -m unittest discover -s repro -p "test_*.py"   # 94 tests, OK
 - The pre-M4 copy was run from a temporary folder laid out like the repo, with the seed added in memory,
   as `rq3_verify.py` did for "before". The committed copy has no seed and no outputs, exactly as a
   developer would have left it.
+
+## Conclusion
+
+The Week 9 decision to move the shared statistics into `stats.py` is supported. Adding the same feature to
+both versions took the same effort (9 edits each), but the old design left behind 3 more copied helpers,
+a working-folder-dependent data path and an unseeded bootstrap, and the modernised design left behind none.
+It needed no change to `stats.py` or its tests, and both versions printed identical numbers. The benefit of
+the modernisation is therefore not that new work is faster to write. It is that new work leaves less to
+maintain. The remaining cost is the plotting and printing cells that are still copied per notebook (23 new
+duplicated lines, 12.8% duplication overall), which we accepted rather than refactor verified notebooks.
+
+## Limitations
+
+- **One feature, one template.** The result comes from a single added outcome (`test_runs`) built from a
+  single template (`coverage.ipynb`). A different outcome, or a template with different copied code, could
+  change the counts. The prediction was also checked once, on one run.
+- **The verdict rests on three of five predictions.** P3 (effort) and P4 (duplicated lines outside
+  functions) failed, so the evidence for "less effort" and "much less copying at notebook level" is
+  negative or weaker than we predicted. We treated them as trade-off evidence, as the plan said.
+- **Effort is counted in edits, not time.** Both variants got the same scripted list of edits, so "same
+  effort" means the same edit count. It does not measure how long a developer would take, or whether they
+  would notice the extra helper copies or the unseeded bootstrap.
+- **We built both variants ourselves.** We wrote the feature for both and we also wrote the plan and the
+  prediction, so this is not an independent check. The pre-registered tag and the script scoring the
+  predictions are there to limit this, not to remove it.
+- **The comparison is only as good as the measures.** Duplication uses the 5-line window of
+  `repro/rq3_measure.py`. Duplication inside functions is not counted in P4. "Same numbers" covers the 26
+  printed lines of the new notebook, and the pre-M4 copy was run from a temporary folder with the seed
+  added in memory rather than as committed.
+- **The feature's own result is not a finding.** `test_runs` is not in the paper and is not one of our RQs.
+  The null difference (p = 0.74) says nothing about RQ1 or RQ2.
+- **Duplication still grows.** In the modernised version each new outcome adds about 20 to 25 duplicated
+  lines. Option B becomes worth doing if a plot change has to touch every notebook, or if more outcomes are
+  added.
+- **RQ2 verification is still limited.** As noted at the top, the authors' data doesn't say which code was
+  AI-assisted, so RQ2 was checked with fallback analyses only.
