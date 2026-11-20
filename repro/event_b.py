@@ -23,11 +23,14 @@ comes from the template, not from how it was edited.
     environment.txt, inputs_sha256.txt
 The pre-M4 copy is run with the seed added in memory, as rq3_verify.py did for "before",
 from a temporary folder laid out like the repo (it reads ../data/).
+If either notebook fails or its modernised p-value is missing/invalid, the run
+records diagnostics and exits non-zero without scoring predictions or updating notebooks.
 """
 import argparse
 import ast
 import hashlib
 import json
+import math
 import platform
 import re
 import shutil
@@ -128,6 +131,32 @@ def printed(text):
     return [l for l in text.splitlines() if not l.startswith("--- cell ")]
 
 
+def parse_p_value(text):
+    match = P_LINE.search(text)
+    if match is None:
+        raise ValueError("modernised output has no rank-sum p-value")
+    try:
+        value = float(match.group(2))
+    except ValueError:
+        raise ValueError("modernised rank-sum p-value is not numeric") from None
+    if not math.isfinite(value) or not 0 <= value <= 1:
+        raise ValueError("modernised rank-sum p-value must be finite and between 0 and 1")
+    return value
+
+
+def fail_run(out, reason, runs):
+    result = {"status": "FAILED", "reason": reason,
+              "notebooks": {label: {"status": status, "seconds": round(secs)}
+                            for label, (_, status, secs, _) in runs.items()}}
+    report = (f"Event B run {out.name}\nFAILED: {reason}\n"
+              "No predictions were scored and no notebook files were updated.\n")
+    (out / "report.txt").write_text(report, encoding="utf-8")
+    (out / "result.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    print(report, end="")
+    print(f"Diagnostics: {out}", file=sys.stderr)
+    raise SystemExit(1)
+
+
 def measure_texts(texts):
     """rq3_measure.measure() on texts we supply, plus the inside/outside-function split."""
     original = rq3_measure.read_text
@@ -221,8 +250,13 @@ def run():
         texts_out[label] = text
         (out / f"{label}.outputs.txt").write_text(f"STATUS: {status}\n" + text, encoding="utf-8")
 
-    m = P_LINE.search(texts_out["modernised"])
-    p_value = float(m.group(2)) if m else float("nan")
+    failures = [f"{label}: {status}" for label, (_, status, _, _) in runs.items() if status != "OK"]
+    if failures:
+        fail_run(out, "; ".join(failures), runs)
+    try:
+        p_value = parse_p_value(texts_out["modernised"])
+    except ValueError as exc:
+        fail_run(out, str(exc), runs)
     conclusion = conclude(run_mod, p_value)
     conclude(built["pre_m4"]["nb"], p_value)
     nbformat.write(run_mod, REPO / NEW)  # the shipped notebook keeps its (seeded) outputs
