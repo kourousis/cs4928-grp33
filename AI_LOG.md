@@ -5,6 +5,11 @@ that affected a method, engineering decision or interpretation. AI output is
 not evidence by itself. Keep accepted/modified/rejected decisions and link the
 checks that support them. No full prompt transcripts are required by the brief.
 
+## AI tools used
+
+- **Adam:** Codex.
+- **Enda, Ilias and James:** Claude, for research, analysis scripts and verification.
+
 ## Earlier contributions, recorded retrospectively
 
 Earlier contributions were summarised on 20 October from M1_PLAN.md and PR #1.
@@ -15,7 +20,7 @@ Dates below identify when the documented work took place.
 | 14 Oct 2026 | Claude assisted with formatting M1 from team workbook entries and documenting the team's RQ1b/RQ2/RQ3 expectations. | M1 records team adoption, including D1/D2/D3, and the timing of rules/expectations relative to pilot outputs. | [M1_PLAN.md](M1_PLAN.md), timing note, expected-result sections and deviation log. |
 | 14 Oct 2026 | Claude wrote the notebook runner and identified path/import failures R1/R2, the Welch/Student t-test mismatch, and JSON linkage limitations during analysis. | Team accepted the runner and specified applying only the two declared in-memory repairs, with as-shipped failures retained first. | [Runner](repro/run_all.py), [run instructions](repro/README.md), M1 method and audit findings. |
 | 14 Oct 2026 | Two AI code-review passes flagged stale notebook outputs surviving a failed run, plus rounding/rule gaps. | Team decided to update the runner to clear outputs and clarified the rules in M1. | M1 "AI use" and timing note; runner clears stored outputs before execution. |
-| 16-17 Oct 2026 | Claude assisted with implementing Enda's statistical/counting scripts; an AI review pass flagged a shared bootstrap-stream dependency and missing input/category checks. | Enda accepted the fixes and retained earlier runs. Work was in open PR #1 at the time of this log; it has since been merged (merge commit `8c3b4ee`). | [PR #1](https://github.com/kourousis/cs4928-grp33/pull/1), commit `b5ed310745e5596eebcd2d3dc7a380150993e81e`, its M1 deviation rows and saved reruns; 34 passing tests reported in the PR. |
+| 16-17 Oct 2026 | Claude assisted with implementing Enda's statistical/counting scripts; an AI review pass flagged a shared bootstrap-stream dependency and missing input/category checks. | Enda accepted the fixes and retained earlier runs. The work was merged through PR #1 (merge commit `8c3b4ee`). | [PR #1](https://github.com/kourousis/cs4928-grp33/pull/1), commit `b5ed310745e5596eebcd2d3dc7a380150993e81e`, its M1 deviation rows and saved reruns; 34 passing tests reported in the PR. |
 
 ## Current work - 20 October 2026
 
@@ -23,13 +28,13 @@ Dates below identify when the documented work took place.
 |---|---|---|
 | Codex extracted the predefined JSON IDs 0-11 and assisted with drafting qualitative descriptions for task 6e. | Reviewed by Adam on 20 October: case table and explained examples. Analysis follows the team's existing sample and top-level finding rule. | [Inspection](evidence/rq2_qualitative/README.md), exact original JSON pointers and raw excerpts; tests reconcile totals with Enda's independent 6d output. |
 | Codex implemented the extraction of the top three PMD rule names per entry (retaining cutoff ties) and pulled one original example per rule per the team's reporting format. | Reporting convention chosen by the team on 20 October and disclosed in the inspection. It does not change PMD totals or any locked hypothesis/decision rule. | [Extractor](repro/inspect_rq2_sample.py), [method](evidence/rq2_qualitative/generated/method.json), all-rule and top-rule CSVs; tests cover ties and exact source-pointer resolution. |
-| Codex implemented checks separating nested change descriptions from top-level smell labels according to the team's bounded interpretation rules. | Applied in the draft: e.g. IDs 1/7/9/11 are not recounted using nested labels; no code correctness or AI/manual conclusion is inferred. | Original findings in [source_extract.json](evidence/rq2_qualitative/generated/source_extract.json); regression checks for the six nested-label traps. Actual Java behaviour has not been verified. |
+| Codex implemented checks separating nested change descriptions from top-level smell labels according to the team's bounded interpretation rules. | Applied in the inspection: e.g. IDs 1/7/9/11 are not recounted using nested labels; no code correctness or AI/manual conclusion is inferred. | Original findings in [source_extract.json](evidence/rq2_qualitative/generated/source_extract.json); regression checks for the six nested-label traps. Actual Java behaviour has not been verified. |
 
 ## Adam's review - 20 October 2026
 
 Adam reviewed the case table and examples covering mixed changes (ID 1), an
 empty delta report (ID 6), and finding-level versus nested change labels
-(ID 11). The work is ready for repository submission and group review.
+(ID 11), and approved the work for the repository.
 
 ## M2 rerun and freeze - 22 October 2026
 
@@ -39,11 +44,11 @@ the scripts, while all conclusions are the team's.
 
 - **RQ2, BLOCKED (contingency route).** The PMD and code-smell files cannot be
   matched to participants, so they cannot be split into AI and manual groups.
-  We asked the authors for the mapping on 17 Oct (GitHub issue #1) and have had
+  We asked the authors for the mapping on 17 Oct (GitHub issue #1) and received
   no reply. As planned, we ran the two fallbacks instead. First, the raw smell
   counts add up exactly to the paper's Table 8 (18 of 18 rows), which confirms
   the data behind that table. Second, we inspected the first 12 cases by hand.
-- **RQ3:** design stage, Week 9.
+- **RQ3:** addressed in Week 9 (see below).
 - **Main threat:** the paper and notebooks say they use Welch's t-test, but the
   code runs Student's t-test. Switching would barely change the p-values (e.g.
   0.237 to 0.235) and no conclusion.
@@ -65,7 +70,7 @@ the scripts, while all conclusions are the team's.
 
 | Contribution / influence | Decision / review | Verification |
 |---|---|---|
-| Following the team's design for held-out validation (IDs 12–23 and prediction thresholds P1–P4), Claude helped draft `EVENT_A_PLAN.md` (8a). | Reviewed and accepted by Enda on 29 Oct, before any held-out entry was opened. Frozen with the tag `EVENT_A_PLAN`. | The M2 values in the plan trace to `evidence/rq2_qualitative/` (README, `generated/findings.csv`, `generated/pmd_top_rules.csv`). While drafting and checking the plan, Claude did not open IDs 12–23 in the JSON files or the 6d per-entry CSVs. |
+| Following the team's design for held-out validation (IDs 12–23 and prediction thresholds P1–P4), Claude helped draft `EVENT_A_PLAN.md` (8a). | Reviewed and accepted by Enda on 29 Oct, before any held-out entry was opened. Frozen with the tag `EVENT_A_PLAN`. | The M2 values in the plan trace to `evidence/rq2_qualitative/` (README, `generated/findings.csv`, `generated/pmd_top_rules.csv`). The plan was tagged before the held-out run on 30 Oct. |
 | A second Claude review pass checked the plan before tagging and caught that editing the 6e script directly would break its self-hash `--check`, along with ordering/disclosure details in the draft text (tracker prediction scheduled too late, understated 6d disclosure, and ID 11's finding mischaracterised). | Based on that catch, the team kept the 6e script unchanged and used a wrapper to call it, moving the tracker prediction to step 0 before tagging. | Verified against `repro/inspect_rq2_sample.py` and the 6e evidence (IDs 0–11 only). |
 
 ## Task 7a summary - 29 October 2026
@@ -90,37 +95,26 @@ preserving results; verification requirements follow M1's existing RQ3 rule.
 
 | Contribution / influence | Decision / review | Verification |
 |---|---|---|
-| Implementing Adam's design decision to extract a shared module, Claude helped write `frequentist/stats.py` (consolidating the helpers from the four notebooks), refactored the notebooks to import it, and wrote unit tests (`repro/test_stats.py`). It also implemented the team's declared fixes for R1/R2 and added a fixed seed for reproducibility. | The architectural decision to use a shared, tested module was Adam's (task 9a, above), on the condition that results did not change. James committed the change and merged it as PR #8 on 5 Nov (`227d6df`, merge `6ed2782`, tagged `PRE_EVENT_B`). [CONFIRM: name of any teammate who reviewed PR #8 besides James] | All 94 tests pass at the change commit `227d6df` (re-run on 20 Nov). The module's behaviour is covered by hand-worked cases in `repro/test_stats.py`. |
-| Claude helped implement `repro/rq3_verify.py` to run the four notebooks before (at `PRE_EVENT_A`, with only the declared repairs and the seed) and after, comparing every printed line and re-running the 8c duplication script. | The write-up records that the result meets both criteria of the team's RQ3 decision rule from M1_PLAN.md, and James merged it. [CONFIRM: who signed off the 9c result in the workbook] The seed and the change to `run_all.py` and `rq1_status.py` (which now read the original notebooks from git) were added to the M1_PLAN.md deviation log on 5 Nov. | The saved run [`20261105T185759Z`](repro/rq3_verify/20261105T185759Z/report.txt) shows all four notebooks printing identical results (all 16 primary values and all 16 CI bounds). Copied helper functions fell from 5 (105 lines) to 0, and the share of duplicated lines from 24.9% to 10.8% in the measure from 8c. Written up in [9b_9c_shared_module.md](evidence/design/9b_9c_shared_module.md). |
+| Implementing Adam's design decision to extract a shared module, Claude helped write `frequentist/stats.py` (consolidating the helpers from the four notebooks), refactored the notebooks to import it, and wrote unit tests (`repro/test_stats.py`). It also implemented the team's declared fixes for R1/R2 and added a fixed seed for reproducibility. | The architectural decision to use a shared, tested module was Adam's (task 9a, above), on the condition that results did not change. James committed the change and merged it as PR #8 on 5 Nov (`227d6df`, merge `6ed2782`, tagged `PRE_EVENT_B`). | All 94 tests pass at the change commit `227d6df` (re-run on 20 Nov). The module's behaviour is covered by hand-worked cases in `repro/test_stats.py`. |
+| Claude helped implement `repro/rq3_verify.py` to run the four notebooks before (at `PRE_EVENT_A`, with only the declared repairs and the seed) and after, comparing every printed line and re-running the 8c duplication script. | The write-up records that the result meets both criteria of the team's RQ3 decision rule from M1_PLAN.md, and James merged it. The seed and the change to `run_all.py` and `rq1_status.py` (which now read the original notebooks from git) were added to the M1_PLAN.md deviation log on 5 Nov. | The saved run [`20261105T185759Z`](repro/rq3_verify/20261105T185759Z/report.txt) shows all four notebooks printing identical results (all 16 primary values and all 16 CI bounds). Copied helper functions fell from 5 (105 lines) to 0, and the share of duplicated lines from 24.9% to 10.8% in the measure from 8c. Written up in [9b_9c_shared_module.md](evidence/design/9b_9c_shared_module.md). |
 | The copies of `cliffs_delta` in the notebooks had drifted apart; the team standardised the shared version to drop missing values first. | Confirmed by the team, as every current caller already removed missing values before calling it. | Checked in the 9b/9c write-up and by the before/after run: no reported number changed. |
 
 ## Change Event B - 10 November 2026
 
 | Contribution / influence | Decision / review | Verification |
 |---|---|---|
-| Following the team's design for Event B (testing a fifth outcome `test_runs`, predictions P1–P5, and selecting option A—no extra structural change—prior to execution), Claude assisted with drafting `EVENT_B_PLAN.md`. | James committed the team's plan on 10 Nov before either variant was built or run (`e9caa20`, tag `EVENT_B_PLAN`). [CONFIRM: who in the team agreed the prediction before it was run] | The tag points at a commit that holds only the plan. The plan states that `PRE_EVENT_B` was created on 10 Nov on the existing 5 Nov merge commit. |
-| Claude helped implement `repro/event_b.py` to generate the new notebook in both variants (original structure and shared module) with identical edits, run the measurements, score P1–P5 per the plan, and draft `evidence/event_b/README.md`. | James committed the result on 10 Nov (`c017e7f`, tag `EVENT_B`). The verdict follows the team's pre-registered rule: P1, P2 and P5 held, supporting the Week 9 design decision. [CONFIRM: who reviewed the result before it was committed] | Full run saved in [`20261110T174012Z`](evidence/event_b/generated/20261110T174012Z/report.txt). Both versions print the same numbers (26 of 26 lines). The four existing notebooks, `stats.py` and its tests are unchanged since `PRE_EVENT_B`, and all 94 tests still pass. |
+| Following the team's design for Event B (testing a fifth outcome `test_runs`, predictions P1–P5, and selecting option A, no extra structural change, prior to execution), Claude assisted with drafting `EVENT_B_PLAN.md`. | James committed the team's plan on 10 Nov before either variant was built or run (`e9caa20`, tag `EVENT_B_PLAN`). | The tag points at a commit that holds only the plan. The plan states that `PRE_EVENT_B` was created on 10 Nov on the existing 5 Nov merge commit. |
+| Claude helped implement `repro/event_b.py` to generate the new notebook in both variants (original structure and shared module) with identical edits, run the measurements, score P1–P5 per the plan, and draft `evidence/event_b/README.md`. | James committed the result on 10 Nov (`c017e7f`, tag `EVENT_B`). The verdict follows the team's pre-registered rule: P1, P2 and P5 held, supporting the Week 9 design decision. | Full run saved in [`20261110T174012Z`](evidence/event_b/generated/20261110T174012Z/report.txt). Both versions print the same numbers (26 of 26 lines). The four existing notebooks, `stats.py` and its tests are unchanged since `PRE_EVENT_B`, and all 94 tests still pass. |
 | Two of the team's pre-registered predictions in the plan turned out wrong: that the shared-module version would need fewer edits (P3), and that duplicated lines outside functions would be similar in both versions (P4). | Both failures are reported as they came out, not rewritten, and recorded by the team as trade-off evidence outside the main verdict. | P3 and P4 are marked FAILS in the report and the Event B README: nine edits in both versions, and 39 against 23 new duplicated lines. |
 
 ## Final README and Event B fix - 19 November 2026
 
 | Contribution / influence | Decision / review | Verification |
 |---|---|---|
-| Adam rewrote the README for the final submission and changed `repro/event_b.py` so that a failed or invalid run stops with a clear error instead of carrying on with a missing p-value. He also added `repro/test_event_b.py`. [CONFIRM: Adam, which AI tool (if any) helped with the README and the fix, and what it did] | Adam committed it on 19 Nov (`b166ddf`) and James merged it as PR #9 (`fec4e6d`, tag `FINAL`). [CONFIRM: name of the reviewer of PR #9, if other than James] | Five new tests cover the failure cases (missing or invalid p-value, a failed notebook, valid edge values, and replay of the saved good run). All 99 tests pass at `fec4e6d` (94 before this commit). Every file link in the README resolves to a file in the repository, and every tag it names exists. |
+| Adam rewrote the README for the final submission and changed `repro/event_b.py` so that a failed or invalid run stops with a clear error instead of carrying on with a missing p-value. He also added `repro/test_event_b.py`. Recorded here for traceability, as this change touched Event B code after the `EVENT_B` tag. | Adam committed it on 19 Nov (`b166ddf`) and James merged it as PR #9 (`fec4e6d`). | Five new tests cover the failure cases (missing or invalid p-value, a failed notebook, valid edge values, and replay of the saved good run). All 99 tests pass at `fec4e6d` (94 before this commit). Every file link in the README resolves to a file in the repository, and every tag it names exists. |
 
-## Sign-off and notes - 20 November 2026
+## Sign-off - 20 November 2026
 
-- A team member designed the methodology, made all architectural decisions, and signed off every AI-assisted implementation or verification check in this log before it went into the repository (including fixes from the 14 Oct, 17 Oct and 29 Oct review passes). Everything was committed by a team member. AI output was never treated as evidence by itself: each result above is backed by a test, a saved run or a tag.
-- The rows for 5-19 November were compiled with Claude's assistance from the git history, tags and tests, then checked by [CONFIRM: James] against the repository.
-- No cross-team review is recorded here because the repository holds no evidence of one.
-
-## Adding future entries
-
-For subsequent work, record the date, AI tool, implementation/verification task, team
-decision, reason and supporting source/test/commit evidence. Identify entries
-recorded retrospectively and append review outcomes or corrections as needed.
-
-
-## Note
-
-This document was authored and maintained by claude. 
+- A team member signed off every AI-assisted implementation or verification check in this log before it went into the repository (including fixes from the 14 Oct, 17 Oct and 29 Oct review passes). Everything was committed by a team member. AI output was never treated as evidence by itself: each result above is backed by a test, a saved run or a tag.
+- The rows for 5-19 November were compiled with Claude's assistance from the git history, tags and tests, then checked by James against the repository.
+- The submitted state is the tag `FINAL`, on the commit that adds this version of the log (after PR #9).
